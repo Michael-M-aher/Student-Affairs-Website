@@ -14,7 +14,8 @@ def edit_student(request):
 def search(request):
     return render(request, 'Search.html')
 def view_all(request):
-    return render(request, 'View-all.html')
+    students = Student.objects.all()
+    return render(request, 'View-all.html', {'Students': students})
 def login(request):
     return render(request, 'loginPage.html')
 def assign(request):
