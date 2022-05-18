@@ -1,8 +1,9 @@
 {% load static %}
-<!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="{% static 'css/NavBar.css'%}"/>
+        <link rel="stylesheet" href="{% static 'css/erorr.css'%}" />
+        <link rel="stylesheet" href="{% static 'css/NavBar.css'%}" />
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -34,6 +35,14 @@
                 <a href="/View-all"><li class="menu-element">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></li></a>
                 <a href="/loginPage"><li class="menu-element">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></li></a>
             </ul>
+        </div>
+
+        <div id="container">
+            <div id="msg">
+                Unable to assign department to that student <br/>
+                The student is not in the third level! <br/>
+            </div>
+            <button class="OK"  onclick="window.location.href='/assign';">OK</button>
         </div>
         <script src="{% static 'JS/nav.js'%}"></script>
     </body>

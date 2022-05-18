@@ -33,8 +33,8 @@ function validateForm() {
 
     if(Sid == null || Sid == ""){
 
-    }else if ( isNaN(Sid)) {
-        document.getElementById("Pid").innerHTML = "ID must be all numbers";
+    }else if ( isNaN(Sid)|| Sid<0) {
+        document.getElementById("Pid").innerHTML = "ID must be all positive numbers";
         event.preventDefault();
     }else{
         document.getElementById("Pid").innerHTML = "";
@@ -42,6 +42,9 @@ function validateForm() {
 
     if(gpa == null || gpa == ""){
 
+    }else if ( isNaN(gpa)) {
+        document.getElementById("Pid").innerHTML = "gpa must be all numbers";
+        event.preventDefault();
     }else if(gpa < 0 || gpa > 4){
         document.getElementById("Pgpa").innerHTML = "Invalid gpa (please enter gpa from 0 to 4)";
         event.preventDefault();
@@ -86,8 +89,4 @@ function validateForm() {
         document.getElementById("Pphone").innerHTML = "";
     }
   
-}
-
-function ConfirmDeletion(){
-    window.location.href='./DeleteConfirmation.html';
 }

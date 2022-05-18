@@ -1,8 +1,9 @@
+{% load static %}
 <!DOCTYPE html> 
 <html> 
     <header>
         <title>login page</title>
-        <link rel="stylesheet" href="css/loginPagestyle.css">
+        <link rel="stylesheet" href="{% static 'css/loginPagestyle.css'%}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
             function redirect()
@@ -13,7 +14,7 @@
 
                 }else{
                     event.preventDefault();
-                    window.location.href = './HomePage.html';
+                    window.location.href = '/HomePage';
                 }
             }
         </script>
@@ -21,7 +22,7 @@
     <body>
         <form  method="post" action="">
             <div class="container">
-                <a><img src="./images/logo.png"
+                <a><img src="{% static 'images/logo.png'%}"
                 width="170" height="140"></a>
                     <br>
                     <input class="input-name" type="text" id="username" name="username" placeholder="Enter username" required>
