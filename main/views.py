@@ -7,21 +7,30 @@ from .models import Student
 
 def home(request):
     return render(request, 'HomePage.html')
+
 def add_student(request):
     return render(request, 'Add_Student.html')
+
 def edit_student(request):
     return render(request, 'Edit_student_data.html')
+
 def search(request):
-    return render(request, 'Search.html')
+    students = Student.objects.all()
+    return render(request, 'Search.html', {'Students': students})
+
 def view_all(request):
     students = Student.objects.all()
     return render(request, 'View-all.html', {'Students': students})
+
 def login(request):
     return render(request, 'loginPage.html')
+
 def assign(request):
     return render(request, 'assign.html')
+
 def delete_confirmation(request):
     return render(request, 'DeleteConfirmation.html')
+
 def error(request):
     return render(request, 'error.html')
 

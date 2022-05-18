@@ -58,35 +58,15 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="rw">
-                  <td class="img"><img src="{% static 'images/female_user.png'%}" alt=""></td>
-                  <td class="name">Sara Mohamed</td>
-                  <td class="id">20200222</td>
-                  <td class="btn"><button onclick="window.location.href='/Edit_student_data';"><i class="fas fa-pen" ></i></button></td>
-                  <td class="btn"><a href="/assign" ><img src="{% static 'images/department.png'%}" id="depimg"/></a></td>
-                </tr>
-        
-                <tr class="rw">
-                  <td class="img"><img src="{% static 'images/male_user.png'%}" alt=""></td>
-                  <td class="name">Mohamed Ahmed</td>
-                  <td class="id">20200222</td>
-                  <td class="btn"><button onclick="window.location.href='/Edit_student_data';"><i class="fas fa-pen" ></i></button></td>
-                  <td class="btn"><a href="/assign" ><img src="{% static 'images/department.png'%}" id="depimg"/></a></td>
-                </tr>
-                <tr class="rw">
-                  <td class="img"><img src="{% static 'images/female_user.png'%}" alt=""></td>
-                  <td class="name">Sara Mohamed</td>
-                  <td class="id">20200222</td>
-                  <td class="btn"><button onclick="window.location.href='/Edit_student_data';"><i class="fas fa-pen" ></i></button></td>
-                  <td class="btn"><a href="/assign" ><img src="{% static 'images/department.png'%}" id="depimg"/></a></td>
-                </tr>
-                <tr class="rw">
-                  <td class="img"><img src="{% static 'images/male_user.png'%}" alt=""></td>
-                  <td class="name">Mohamed Ahmed</td>
-                  <td class="id">20200222</td>
-                  <td class="btn"><button onclick="window.location.href='/Edit_student_data';"><i class="fas fa-pen" ></i></button></td>
-                  <td class="btn"><a href="/assign" ><img src="{% static 'images/department.png'%}" id="depimg"/></a></td>
-                </tr>
+                {% for student in Students %}
+                  <tr class="rw">
+                    <td class="img"><img src={{student.image}} alt=""></td>
+                    <td class="name">{{student.name}}</td>
+                    <td class="id">{{student.id}}</td>
+                    <td class="btn"><button onclick="window.location.href='/Edit_student_data';"><i class="fas fa-pen" ></i></button></td>
+                    <td class="btn"><a href="/assign" ><img src="{% static 'images/department.png'%}" id="depimg"/></a></td>
+                  </tr>
+                {% endfor %}
               </tbody>
             </table>
             <script src="{% static 'JS/nav.js'%}"></script>
