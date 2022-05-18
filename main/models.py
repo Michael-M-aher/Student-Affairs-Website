@@ -1,6 +1,7 @@
 from ast import Is
 from datetime import datetime
 from distutils.command.upload import upload
+from email.policy import default
 from django.utils import timezone
 from django.utils.dateparse import parse_date
 from django.db import models
@@ -47,7 +48,7 @@ class Student(models.Model):
     phone = models.CharField(max_length=15)
     birth = models.DateField(default=timezone.now)
     status = models.CharField(max_length=25,choices=STATUS,default=ACTIVE)
-    image = models.ImageField(upload_to ='Photos/',blank = True)
+    image = models.ImageField(upload_to ='main/static/profilePhotos/',blank = True)
 
     # Student( id = 20200576,name = "Michael",gpa = 3.5,email = "mishoopop6@gmail.com",level = 2,department = "general",gender = "male",phone = "01285382191",status="ACTIVE",birth = "2002-09-13")
     

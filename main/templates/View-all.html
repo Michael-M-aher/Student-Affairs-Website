@@ -57,7 +57,21 @@
       <tbody>
         {% for student in Students %}
           <tr class="rw">
-            <td class="img"><img src="{{student.image}}" alt=""></td>
+            <td class="img">
+              
+              {% if student.image %}
+                {% block content %}
+                  <img src="{{ student.image.url }}">
+                {% endblock %}
+              {% else %}
+                {% if student.gender == 'male' %}
+                    <img src="{% static 'images/male_user.png'%}">
+                {% else %}
+                <img src="{% static 'images/female_user.png'%}">
+                {% endif %}
+              {% endif %}
+              
+            </td>
             <td class="name">{{student.name}}</td>
             <td class="id">{{student.id}}</td>
             <td class="swtch"><label class="switch">
@@ -78,5 +92,3 @@
 
   <script src="{% static 'JS/nav.js'%}"></script>
 </body>
-
-<>
