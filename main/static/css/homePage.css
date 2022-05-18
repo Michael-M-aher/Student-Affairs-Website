@@ -1,0 +1,18 @@
+
+.functionalareas{
+    width: 95%;
+    padding: 1%;
+    margin: 20px;
+    background:rgb(105,142,162,0.1) ;
+    border-radius: 15px;
+}
+.infoClass{
+    width: 95%;
+    padding: 1%;
+    margin: 20px;
+    background:rgb(105,142,162,0.6) ;
+}
+ h1, h2,h3{
+    color:#484141; 
+    margin-left:2%;
+}

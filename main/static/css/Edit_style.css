@@ -1,0 +1,172 @@
+#Student-img {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    margin-left: 20%;
+}
+
+#student-changes {
+    padding-top: 5%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 0;
+    width: 60%;
+    height: 100%;
+}
+
+.part {
+    width: 30%;
+    padding-bottom: 3%;
+}
+
+label {
+    display: inline;
+}
+
+#center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    padding-bottom: 2%;
+}
+
+.changes-title {
+    display: inline;
+    font: 50px;
+    margin: 5%;
+    font-size: 120%;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.text-input, #date-button {
+    font-size: 15px;
+    border: 1px solid;
+    border-radius: 25px;
+    width: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#save {
+    background-color: #04aa6d;
+    color: white;
+    border-radius: 20px;
+    font-size: 18px;
+    vertical-align: middle;
+    padding: 6px 18px;
+    margin-left: 25%;
+}
+
+#save:hover {
+    background-color: #44b48b;
+    color: white;
+}
+
+#save:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+#department {
+    font-size: 15px;
+    border: 1px solid;
+    border-radius: 25px;
+    width: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.select-button {
+    border: 1px solid;
+    border-radius: 25px;
+}
+
+#student-info {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    right: 0;
+    top: 10;
+    width: 40%;
+    height: 40%;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    padding-right: 3%;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#info-con {
+    background-color: rgb(105, 142, 162, 0.1);
+    border-radius: 15px;
+    padding-top: 2%;
+    padding-bottom: 3%;
+}
+
+li {
+    list-style: none;
+    padding-bottom: 3%;
+}
+
+.data-title {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+i {
+    padding-right: 20%;
+    font-size: 120%;
+}
+
+#delete {
+    background-color: #DB3B3B;
+    color: white;
+    border-radius: 20px;
+    font-size: 18px;
+    padding: 6px 18px;
+    margin-left: 40%;
+}
+
+#delete:hover {
+    background-color: #f56161;
+    color: white;
+}
+
+#delete:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+h2 {
+    text-align: center;
+}
+
+.switch {
+    margin-left: 10px;
+    margin-top: 0px;
+    width: 40px;
+    height: 22px;
+}
+
+.slider:before {
+    height: 14px;
+    width: 14px;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+#changes-con {
+    margin-top: -10%;
+}
+.btn{
+ cursor: pointer;
+}

@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Home page</title>
+        <link rel="stylesheet" href="{% static 'css/homePage.css'%}">
+        <link rel="stylesheet" href="{% static 'css/NavBar.css'%}"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </header>
+    <body>
+        <div class="nav">
+            <nav class="nav-bar">
+                <div class="nav-left">
+                    <a href="./HomePage.html" class="active-menu-left">Home <img src="{% static 'images/home.png'%}" class="nav-menue-logo"/></a>
+                    <a href="./Add_Student.html" class="nav-menu">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></a>
+                    <a href="./Edit_student_data.html" class="nav-menu">Edit Student info <img src="{% static 'images/edit.png'%}" class="nav-menue-logo"/></a>
+                </div>
+                <div class="nav-right">
+                    <a href="./Search.html" class="nav-menu">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></a>
+                    <a href="./View-all.html" class="nav-menu">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></a>
+                    <a href="./loginPage.html" class="nav-menu">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></a>
+                </div>
+            </nav>
+            <a href="./HomePage.html"><img src="{% static 'images/nav-logo.png'%}" class="logo"/></a>
+        </div>
+        <div class="hamburger-menu">
+            <nav class="hum-nav">
+                <img src="{% static 'images/humburger.png'%}" id="hum-btn"/>
+            </nav>
+            <a href="./HomePage.html"><img src="{% static 'images/logo.png'%}" id="hum-logo"/></a>
+            <ul id="menu-list">
+                <a href="./HomePage.html"><li class="menu-element-active">Home <img src="{% static 'images/home.png'%}" class="nav-menue-logo"/></li></a>
+                <a href="./Add_Student.html"><li class="menu-element">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></li></a>
+                <a href="./Edit_student_data.html"><li class="menu-element">Edit Student info <img src="{% static 'images/edit.png'%}" class="nav-menue-logo"/></li></a>
+                <a href="./Search.html"><li class="menu-element">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></li></a>
+                <a href="./View-all.html"><li class="menu-element">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></li></a>
+                <a href="./loginPage.html"><li class="menu-element">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></li></a>
+            </ul>
+        </div>
+
+        <h1><b>Home page</b></h1>
+      
+        <h2>Upcoming Important Dates</h2>
+        <div class="functionalareas" >Final exams will start at the <b>10th of May, 2022.</b></div>  
+        <div class="functionalareas" >Admissions for the new academic year 2022-2023 will start at the <b>5th of June, 2022.</b></div>
+        <div class="functionalareas" >Residance life and housing: University city will start housing students by the <b>8th of September, 2022.</b> </div>
+        <div class="functionalareas" >first semeseter for year 2022-2023 will start at the<b> 15th of September, 2022.</b></div>
+        <h2>Latest News</h2>
+        <div class="functionalareas" >International student affairs:<ol><li>international students must have their international IDs or passports </li>
+         <li>a certificate of their high school education sealed from their school and ministry of higher education</li></ol> </div>
+        <div class="functionalareas" >Follow our COVID-19 safety protocols: To help keep everyone safe, students living in our residences must follow our COVID-19 safety procotols, including:
+        <ul> <li>wearing a mask in all indoor common spaces in residence, such as hallways, lobbies, stairwells and elevators.</li> 
+            <li>practicing proper hand hygiene by washing their hands often and using available hand sanitizer</li>
+           <li>physically distancing by staying at least 2 metres (6 feet) from others and limiting close contact to only your suitemates/roommates.
+            following posted occupancy limits for shared spaces</li></ul></div>
+
+
+        
+        <div class="infoClass" >The Faculty is accredited from the National Authority for Quality Insurance and Accreditation of Education.</div>
+        <hr>
+        Copyright © 2004-2022 Faculty of Computers and Artificial Intelligence 5 Dr. Ahmed Zewail Street, Postal Code: 12613, Orman, Giza, Egypt.
+    <script src="{% static 'JS/nav.js'%}"></script>
+    </body>
+</html>

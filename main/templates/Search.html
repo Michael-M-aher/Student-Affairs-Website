@@ -1,0 +1,92 @@
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Search Student</title>
+      <link rel="stylesheet" href="css/search&viewStudents.css">
+      <link rel="stylesheet" href="./css/NavBar.css"/>
+      <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="nav">
+      <nav class="nav-bar">
+          <div class="nav-left">
+              <a href="./HomePage.html" class="nav-menu">Home <img src="./images/home.png" class="nav-menue-logo"/></a>
+              <a href="./Add_Student.html" class="nav-menu">Add Student <img src="./images/add.png" class="nav-menue-logo"/></a>
+              <a href="./Edit_student_data.html" class="nav-menu">Edit Student info <img src="./images/edit.png" class="nav-menue-logo"/></a>
+          </div>
+          <div class="nav-right">
+              <a href="./Search.html" class="active-menu-right">Search <img src="./images/search.png" class="nav-menue-logo"/></a>
+              <a href="./View-all.html" class="nav-menu">View All Students <img src="./images/all.png" class="nav-menue-logo"/></a>
+              <a href="./loginPage.html" class="nav-menu">Log in <img src="./images/login.png" class="nav-menue-logo"/></a>
+          </div>
+      </nav>
+      <a href="./HomePage.html"><img src="./images/nav-logo.png" class="logo"/></a>
+  </div>
+  <div class="hamburger-menu">
+      <nav class="hum-nav">
+          <img src="./images/humburger.png" id="hum-btn"/>
+      </nav>
+      <a href="./HomePage.html"><img src="./images/logo.png" id="hum-logo"/></a>
+      <ul id="menu-list">
+          <a href="./HomePage.html"><li class="menu-element">Home <img src="./images/home.png" class="nav-menue-logo"/></li></a>
+          <a href="./Add_Student.html"><li class="menu-element">Add Student <img src="./images/add.png" class="nav-menue-logo"/></li></a>
+          <a href="./Edit_student_data.html"><li class="menu-element">Edit Student info <img src="./images/edit.png" class="nav-menue-logo"/></li></a>
+          <a href="./Search.html"><li class="menu-element-active">Search <img src="./images/search.png" class="nav-menue-logo"/></li></a>
+          <a href="./View-all.html"><li class="menu-element">View All Students <img src="./images/all.png" class="nav-menue-logo"/></li></a>
+          <a href="./loginPage.html"><li class="menu-element">Log in <img src="./images/login.png" class="nav-menue-logo"/></li></a>
+      </ul>
+  </div>
+
+        <div class="search">
+            <form action="">
+                <input type="text" placeholder="Student name" class="input-field">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div class="tblsearch" >
+            <table>
+              <thead>
+                <tr class="head">
+                  <th></th>
+                  <th>Name:</th>
+                  <th>ID:</th>
+                  <th>Edit</th>
+                  <th>Assign department</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rw">
+                  <td class="img"><img src="images/female_user.png" alt=""></td>
+                  <td class="name">Sara Mohamed</td>
+                  <td class="id">20200222</td>
+                  <td class="btn"><button onclick="window.location.href='./Edit_student_data.html';"><i class="fas fa-pen" ></i></button></td>
+                  <td class="btn"><a href="./assign.html" ><img src="./images/department.png" id="depimg"/></a></td>
+                </tr>
+        
+                <tr class="rw">
+                  <td class="img"><img src="images/male_user.png" alt=""></td>
+                  <td class="name">Mohamed Ahmed</td>
+                  <td class="id">20200222</td>
+                  <td class="btn"><button onclick="window.location.href='./Edit_student_data.html';"><i class="fas fa-pen" ></i></button></td>
+                  <td class="btn"><a href="./assign.html" ><img src="./images/department.png" id="depimg"/></a></td>
+                </tr>
+                <tr class="rw">
+                  <td class="img"><img src="images/female_user.png" alt=""></td>
+                  <td class="name">Sara Mohamed</td>
+                  <td class="id">20200222</td>
+                  <td class="btn"><button onclick="window.location.href='./Edit_student_data.html';"><i class="fas fa-pen" ></i></button></td>
+                  <td class="btn"><a href="./assign.html" ><img src="./images/department.png" id="depimg"/></a></td>
+                </tr>
+                <tr class="rw">
+                  <td class="img"><img src="images/male_user.png" alt=""></td>
+                  <td class="name">Mohamed Ahmed</td>
+                  <td class="id">20200222</td>
+                  <td class="btn"><button onclick="window.location.href='./Edit_student_data.html';"><i class="fas fa-pen" ></i></button></td>
+                  <td class="btn"><a href="./assign.html" ><img src="./images/department.png" id="depimg"/></a></td>
+                </tr>
+              </tbody>
+            </table>
+            <script src="./JS/nav.js"></script>
+    </body>
+</html>

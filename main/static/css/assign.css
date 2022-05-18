@@ -1,0 +1,43 @@
+#assign
+{
+    margin-left: 35%;
+    margin-top: 2%;
+}
+#Student-img{
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+}
+.info {
+    display: inline;
+    font: 50px;
+    margin: 5%;
+    font-size: 120%;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+#dep
+{
+    font-size: 15px;
+    border: 1px solid ;
+    border-radius: 25px;
+    width: 200px;
+}
+.sub{
+  color: white;
+  background-color: #04aa6d;
+  height: 40px;
+  width: 100px;
+  border-radius: 20px;
+  font-size: 18px;
+  padding: 6px 18px;
+  margin-left: 15%;
+}
+.sub:active{
+    transform: scale(0.98);
+            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+.sub:hover {
+    background-color: #44b48b;
+    color: white;
+} 
