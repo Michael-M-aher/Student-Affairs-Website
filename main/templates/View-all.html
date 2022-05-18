@@ -57,7 +57,7 @@
       <tbody>
         {% for student in Students %}
           <tr class="rw">
-            <td class="img"><img src="{{student.image}}" alt=""></td>
+            <td class="img"><img src={{student.image}} alt=""></td>
             <td class="name">{{student.name}}</td>
             <td class="id">{{student.id}}</td>
             <td class="swtch"><label class="switch">
@@ -68,7 +68,6 @@
             <td class="btn"><a href="/assign" ><img src="{% static 'images/department.png'%}" id="depimg"/></a></td>
           </tr>
         {% endfor %}
-
       </tbody>
 
 
