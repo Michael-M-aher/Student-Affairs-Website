@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template.loader import render_to_string
 from .models import Student
 
 # Create your views here.
 
 def home(request):
     return render(request, 'HomePage.html')
+
+def NewHomePage(request):
+    return render(request, 'NewHomePage.html')
 
 def add_student(request):
     return render(request, 'Add_Student.html')
@@ -35,9 +37,9 @@ def error(request):
     return render(request, 'error.html')
 
 def addStudent(request):
-    if Student.objects.filter(id = 20200576).__len__() == 0:
+    if Student.objects.filter(id = 20200567).__len__() == 0:
         s = Student()
-        s.id = 20200576
+        s.id = 20200567
         s.name = "Michael"
         s.gpa = 3.5
         s.email = "mishoopop6@gmail.com"
@@ -53,9 +55,9 @@ def addStudent(request):
         return HttpResponse("Student already Exists")
 
 def editStudent(request):
-    s = Student.objects.filter(id = 20200576)[0]
-    s.id = 20200576
-    s.name = "Michael Maher"
+    s = Student.objects.filter(id = 20200567)[0]
+    s.id = 20200567
+    s.name = "Monica Saeed"
     s.gpa = 3.5
     s.email = "mishoopop6@gmail.com"
     s.level = 2

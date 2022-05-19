@@ -1,9 +1,3 @@
-from ast import Is
-from datetime import datetime
-from distutils.command.upload import upload
-from email.policy import default
-from django.utils import timezone
-from django.utils.dateparse import parse_date
 from django.db import models
 
 # Create your models here.
@@ -46,7 +40,7 @@ class Student(models.Model):
     department = models.CharField(max_length=50,choices=DEPARTMENT, default=GENERAL)
     gender = models.CharField(max_length=25,choices=GENDER)
     phone = models.CharField(max_length=15)
-    birth = models.DateField(default=timezone.now)
+    birth = models.DateField(blank=True)
     status = models.CharField(max_length=25,choices=STATUS,default=ACTIVE)
     image = models.ImageField(upload_to ='main/static/profilePhotos/',blank = True)
 

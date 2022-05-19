@@ -75,8 +75,14 @@
             <td class="name">{{student.name}}</td>
             <td class="id">{{student.id}}</td>
             <td class="swtch"><label class="switch">
+              {% if student.status == 'active' %}
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              {% else %}
                 <input type="checkbox">
                 <span class="slider round"></span>
+              {% endif %}
+                
               </label></td>
             <td class="btn"><button onclick="window.location.href='/Edit_student_data';"><i class="fas fa-pen" ></i></button></td>
             <td class="btn"><a href="/assign" ><img src="{% static 'images/department.png'%}" id="depimg"/></a></td>
