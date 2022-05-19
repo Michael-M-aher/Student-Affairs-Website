@@ -1,143 +1,246 @@
-{% load static %}
+{% load static %} {% csrf_token %}
 <!DOCTYPE html>
 <html>
-<header>
+  <header>
     <title>Add new student</title>
-    <link rel="stylesheet" href="{% static 'css/search&viewStudents.css'%}"/>
-    <link rel="stylesheet" href="{% static 'css/AddStudent.css'%}"/>
-    <link rel="stylesheet" href="{% static 'css/NavBar.css'%}"/>
-    <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
-</header>
+    <link rel="stylesheet" href="{% static 'css/search&viewStudents.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/AddStudent.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/NavBar.css'%}" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </header>
 
-<body>
+  <body>
     <div class="nav">
-        <nav class="nav-bar">
-            <div class="nav-left">
-                <a href="/HomePage" class="nav-menu">Home <img src="{% static 'images/home.png'%}" class="nav-menue-logo"/></a>
-                <a href="/Add_Student" class="active-menu-left">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></a>
-                <a href="/Edit_student_data" class="nav-menu">Edit Student info <img src="{% static 'images/edit.png'%}" class="nav-menue-logo"/></a>
-            </div>
-            <div class="nav-right">
-                <a href="/Search" class="nav-menu">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></a>
-                <a href="/View-all" class="nav-menu">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></a>
-                <a href="/loginPage" class="nav-menu">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></a>
-            </div>
-        </nav>
-        <a href="/HomePage"><img src="{% static 'images/nav-logo.png'%}" class="logo"/></a>
+      <nav class="nav-bar">
+        <div class="nav-left">
+          <a href="/HomePage" class="nav-menu"
+            >Home
+            <img src="{% static 'images/home.png'%}" class="nav-menue-logo"
+          /></a>
+          <a href="/Add_Student" class="active-menu-left"
+            >Add Student
+            <img src="{% static 'images/add.png'%}" class="nav-menue-logo"
+          /></a>
+          <a href="/Edit_student_data" class="nav-menu"
+            >Edit Student info
+            <img src="{% static 'images/edit.png'%}" class="nav-menue-logo"
+          /></a>
+        </div>
+        <div class="nav-right">
+          <a href="/Search" class="nav-menu"
+            >Search
+            <img src="{% static 'images/search.png'%}" class="nav-menue-logo"
+          /></a>
+          <a href="/View-all" class="nav-menu"
+            >View All Students
+            <img src="{% static 'images/all.png'%}" class="nav-menue-logo"
+          /></a>
+          <a href="/loginPage" class="nav-menu"
+            >Log in
+            <img src="{% static 'images/login.png'%}" class="nav-menue-logo"
+          /></a>
+        </div>
+      </nav>
+      <a href="/HomePage"
+        ><img src="{% static 'images/nav-logo.png'%}" class="logo"
+      /></a>
     </div>
     <div class="hamburger-menu">
-        <nav class="hum-nav">
-            <img src="{% static 'images/humburger.png'%}" id="hum-btn"/>
-        </nav>
-        <a href="/HomePage"><img src="{% static 'images/logo.png'%}" id="hum-logo"/></a>
-        <ul id="menu-list">
-            <a href="/HomePage"><li class="menu-element">Home <img src="{% static 'images/home.png'%}" class="nav-menue-logo"/></li></a>
-            <a href="/Add_Student"><li class="menu-element-active">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></li></a>
-            <a href="/Edit_student_data"><li class="menu-element">Edit Student info <img src="{% static 'images/edit.png'%}" class="nav-menue-logo"/></li></a>
-            <a href="/Search"><li class="menu-element">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></li></a>
-            <a href="/View-all"><li class="menu-element">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></li></a>
-            <a href="/loginPage"><li class="menu-element">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></li></a>
-        </ul>
+      <nav class="hum-nav">
+        <img src="{% static 'images/humburger.png'%}" id="hum-btn" />
+      </nav>
+      <a href="/HomePage"
+        ><img src="{% static 'images/logo.png'%}" id="hum-logo"
+      /></a>
+      <ul id="menu-list">
+        <a href="/HomePage"
+          ><li class="menu-element">
+            Home
+            <img
+              src="{% static 'images/home.png'%}"
+              class="nav-menue-logo"
+            /></li
+        ></a>
+        <a href="/Add_Student"
+          ><li class="menu-element-active">
+            Add Student
+            <img
+              src="{% static 'images/add.png'%}"
+              class="nav-menue-logo"
+            /></li
+        ></a>
+        <a href="/Edit_student_data"
+          ><li class="menu-element">
+            Edit Student info
+            <img
+              src="{% static 'images/edit.png'%}"
+              class="nav-menue-logo"
+            /></li
+        ></a>
+        <a href="/Search"
+          ><li class="menu-element">
+            Search
+            <img
+              src="{% static 'images/search.png'%}"
+              class="nav-menue-logo"
+            /></li
+        ></a>
+        <a href="/View-all"
+          ><li class="menu-element">
+            View All Students
+            <img
+              src="{% static 'images/all.png'%}"
+              class="nav-menue-logo"
+            /></li
+        ></a>
+        <a href="/loginPage"
+          ><li class="menu-element">
+            Log in
+            <img
+              src="{% static 'images/login.png'%}"
+              class="nav-menue-logo"
+            /></li
+        ></a>
+      </ul>
     </div>
-    
-    <form name="myForm" >
-        <div id="new-student">
-            <div class="photo">
-                <img id="Student-img" src="{% static 'images/general_user.jpg'%}" alt="Student picture ">
-                <label for="files" class="btn"><i class="fas fa-pen" style='font-size:15px'></i></label>
-                <input type="file" id="files" style="visibility:hidden;">
-            </div>
-            <div class="name">
-                <label class="student-title">Student Name:</label><br>
-                <input id="NAME" class="text-input" type="text" placeholder="Enter Student Name" required>
-                <p class="error" id="Pname"></p>
-            </div>
-            <br>
-            <div class="id">
-                <label class="student-title">Student ID:</label><br>
-                <input id="IDs" class="text-input" type="text" placeholder="20######" required>
-                <p class="error" id="Pid"></p>
-            </div>
-            <br>
-            <div class="gpa">
-                <label class="student-title">GPA:</label><br>
-                <input id="GPA" class="text-input" type="text" placeholder="Enter GPA value" required>
-                <p class="error" id="Pgpa"></p>
-            </div>
-            <br>
-            <div class="email">
-                <label class="student-title">Email Address:</label><br>
-                <input  id="EMAIL" class="text-input" type="text" placeholder="Enter Student Email Address" required>
-                <p class="error" id="Pemail"></p>
-            </div>
-            <br>
-            <div class="level">
-                <label class="student-title">Student Level:</label><br>
-                <select id="LEVEL" class="select-button" required>
-                    <option value="" disabled selected hidden>Choose a level</option>
-                    <option value="0">1</option>
-                    <option value="1">2</option>
-                    <option value="2">3</option>
-                    <option value="3">4</option>
-                </select>
-            </div>
-            <br>
-            <div class="department">
-                <label class="student-title">Department:</label><br>
-                <select id="DEPARTMENT" class="select-button" required>
-                    <option value="" disabled selected hidden>Choose a Department</option>
-                    <option value="0">General</option>
-                    <option value="1">CS</option>
-                    <option value="2">IS</option>
-                    <option value="3">IT</option>
-                    <option value="4">DS</option>
-                    <option value="5">AI</option>
-                </select>
-                <p class="error" id="Pdepart"></p>
-            </div>
-            <br>
-            <div class="birthdate">
-                <label class="student-title">Date of birth:</label><br>
-                <input id="date-button" Class="date-button" type="date" required>
-                <!--value  is 2002-07-16 to show Sara's birthday-->
-                <p class="error" id="Pbirth"></p>
-            </div>
-            <br>
-            <div class="gender">
-                <label class="student-title">Gender:</label><br>
-                <select id="GENDER" class="select-button"  required>
-                    <option value="" disabled selected hidden>Choose a gender</option>
-                    <option value="0">Male</option>
-                    <option value="1">Female</option>
-                </select>
-            </div>
-            <br>
-            <div class="phone">
-                <label class="student-title">Mobile Number:</label><br>
-                <input id="PHONE" class="text-input" type="text" placeholder="01#########" required>
-                <p class="error" id="Pphone"></p>
-            </div>
-            <br>
-            <div class="status">
-                <label class="student-title">Status:</label>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <br>
-            <div class="btns">
-                <button type="button" class="cancel">Cancel</button>
-                <button  onclick="validateForm()" type="submit" class="submit">Add</button>
-            </div>
-        </div>
-    </form>
 
+    <form name="myForm" onsubmit="addStudent()">
+      <div id="new-student">
+        <div class="photo">
+          <img
+            id="Student-img"
+            src="{% static 'images/general_user.jpg'%}"
+            alt="Student picture "
+          />
+          <label for="files" class="btn"
+            ><i class="fas fa-pen" style="font-size: 15px"></i
+          ></label>
+          <input type="file" id="files" style="visibility: hidden" />
+        </div>
+        <div class="name">
+          <label class="student-title">Student Name:</label><br />
+          <input
+            id="NAME"
+            class="text-input"
+            type="text"
+            placeholder="Enter Student Name"
+            required
+          />
+          <p class="error" id="Pname"></p>
+        </div>
+        <br />
+        <div class="id">
+          <label class="student-title">Student ID:</label><br />
+          <input
+            id="IDs"
+            class="text-input"
+            type="text"
+            placeholder="20######"
+            required
+          />
+          <p class="error" id="Pid"></p>
+        </div>
+        <br />
+        <div class="gpa">
+          <label class="student-title">GPA:</label><br />
+          <input
+            id="GPA"
+            class="text-input"
+            type="text"
+            placeholder="Enter GPA value"
+            required
+          />
+          <p class="error" id="Pgpa"></p>
+        </div>
+        <br />
+        <div class="email">
+          <label class="student-title">Email Address:</label><br />
+          <input
+            id="EMAIL"
+            class="text-input"
+            type="text"
+            placeholder="Enter Student Email Address"
+            required
+          />
+          <p class="error" id="Pemail"></p>
+        </div>
+        <br />
+        <div class="level">
+          <label class="student-title">Student Level:</label><br />
+          <select id="LEVEL" class="select-button" required>
+            <option value="" disabled selected hidden>Choose a level</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <br />
+        <div class="department">
+          <label class="student-title">Department:</label><br />
+          <select id="DEPARTMENT" class="select-button" required>
+            <option value="" disabled selected hidden>
+              Choose a Department
+            </option>
+            <option value="general">General</option>
+            <option value="cs">CS</option>
+            <option value="is">IS</option>
+            <option value="it">IT</option>
+            <option value="it">DS</option>
+            <option value="ai">AI</option>
+          </select>
+          <p class="error" id="Pdepart"></p>
+        </div>
+        <br />
+        <div class="birthdate">
+          <label class="student-title">Date of birth:</label><br />
+          <input id="date-button" class="date-button" type="date" required />
+          <!--value  is 2002-07-16 to show Sara's birthday-->
+          <p class="error" id="Pbirth"></p>
+        </div>
+        <br />
+        <div class="gender">
+          <label class="student-title">Gender:</label><br />
+          <select id="GENDER" class="select-button" required>
+            <option value="" disabled selected hidden>Choose a gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <br />
+        <div class="phone">
+          <label class="student-title">Mobile Number:</label><br />
+          <input
+            id="PHONE"
+            class="text-input"
+            type="text"
+            placeholder="01#########"
+            required
+          />
+          <p class="error" id="Pphone"></p>
+        </div>
+        <br />
+        <div class="status">
+          <label class="student-title">Status:</label>
+          <label class="switch">
+            <input type="checkbox" id="Status" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <br />
+        <div class="btns">
+          <button type="button" class="cancel">Cancel</button>
+          <button onclick="validateForm();" type="submit" class="submit">
+            Add
+          </button>
+        </div>
+      </div>
+    </form>
     <script src="{% static 'JS/validatedStudentInfo.js'%}"></script>
     <script src="{% static 'JS/nav.js'%}"></script>
-</body>
-
+  </body>
 </html>
