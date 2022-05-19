@@ -42,7 +42,7 @@ class Student(models.Model):
     department = models.CharField(
         max_length=50, choices=DEPARTMENT, default=GENERAL)
     gender = models.CharField(max_length=25, choices=GENDER)
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=11)
     birth = models.DateField(blank=True)
     status = models.CharField(max_length=25, choices=STATUS, default=ACTIVE)
     image = models.ImageField(

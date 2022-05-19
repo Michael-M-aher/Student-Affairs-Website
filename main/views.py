@@ -48,6 +48,12 @@ def delete_confirmation(request):
 def error(request):
     return render(request, 'error.html')
 
+def student_added(request):
+    return render(request, 'Student_Added.html')
+
+def student_exists(request):
+    return render(request, 'Student_Exists.html')
+
 
 @csrf_protect
 def addStudent(request):

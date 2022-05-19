@@ -1,6 +1,7 @@
 #new-student {
-  margin-left: 41%;
+  margin-left: 42%;
   margin-top: 2%;
+  margin-bottom: 6%;
 }
 
 .text-input, .select-button, .date-button {
@@ -59,8 +60,8 @@
 }
 
 .switch {
-  position: relative;
-  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
   width: 40px;
   height: 22px;
 }

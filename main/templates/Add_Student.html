@@ -1,7 +1,7 @@
 {% load static %} {% csrf_token %}
 <!DOCTYPE html>
 <html>
-  <header>
+  <head>
     <title>Add new student</title>
     <link rel="stylesheet" href="{% static 'css/search&viewStudents.css'%}" />
     <link rel="stylesheet" href="{% static 'css/AddStudent.css'%}" />
@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </header>
+  </head>
 
   <body>
     <div class="nav">
@@ -108,7 +108,7 @@
       </ul>
     </div>
 
-    <form name="myForm" onsubmit="addStudent()">
+    <form name="myForm" onsubmit="addStudent();return false">
       <div id="new-student">
         <div class="photo">
           <img
@@ -227,13 +227,13 @@
         <div class="status">
           <label class="student-title">Status:</label>
           <label class="switch">
-            <input type="checkbox" id="Status" />
+            <input type="checkbox" id="SWITCH" />
             <span class="slider round"></span>
           </label>
         </div>
         <br />
         <div class="btns">
-          <button type="button" class="cancel">Cancel</button>
+          <button type="button"  onclick="window.location.href='/HomePage';"" class="cancel">Cancel</button>
           <button onclick="validateForm();" type="submit" class="submit">
             Add
           </button>

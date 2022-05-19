@@ -1,9 +1,9 @@
 {% load static %}
-<!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="{% static 'css/erorr.css'%}"/>
-        <link rel="stylesheet" href="{% static 'css/NavBar.css'%}"/>
+        <link rel="stylesheet" href="{% static 'css/erorr.css'%}" />
+        <link rel="stylesheet" href="{% static 'css/NavBar.css'%}" />
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -39,10 +39,9 @@
 
         <div id="container">
             <div id="msg">
-                Are you sure you want to delete that Student ?<br/>
+                Student added successfully
             </div>
-            <button class="ok"  onclick="window.location.href='/HomePage';">Yes</button>
-            <button class="NO"  onclick="history.back()">NO</button>
+            <button class="OK"  onclick="window.location.href='/Add_Student';">OK</button>
         </div>
         <script src="{% static 'JS/nav.js'%}"></script>
     </body>

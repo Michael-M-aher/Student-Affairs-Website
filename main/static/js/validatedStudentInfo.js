@@ -21,10 +21,10 @@ function validateForm() {
     var level = select1.options[select1.selectedIndex].value;
     var select2 = document.getElementById("DEPARTMENT");
     var department = select2.options[select2.selectedIndex].value;
-    var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    var regName = /^[a-zA-Z]+( [a-zA-Z]+)+$/ ;
     if(name == null || name == ""){
     }else if(!regName.test(name)){
-        document.getElementById("Pname").innerHTML = "Please enter your full name (firstname & lastname)";
+        document.getElementById("Pname").innerHTML = "Please enter your Full Name (firstname & lastname)";
         event.preventDefault();
     }else{
         document.getElementById("Pname").innerHTML = "";
@@ -42,10 +42,10 @@ function validateForm() {
     if(gpa == null || gpa == ""){
 
     }else if ( isNaN(gpa)) {
-        document.getElementById("Pgpa").innerHTML = "gpa must be all numbers";
+        document.getElementById("Pgpa").innerHTML = "GPA must be all numbers";
         event.preventDefault();
     }else if(gpa < 0 || gpa > 4){
-        document.getElementById("Pgpa").innerHTML = "Invalid gpa (please enter gpa from 0 to 4)";
+        document.getElementById("Pgpa").innerHTML = "Invalid GPA (please enter GPA from 0 to 4)";
         event.preventDefault();
     }else{
         document.getElementById("Pgpa").innerHTML = "";
@@ -55,17 +55,17 @@ function validateForm() {
     if(email == null || email == ""){
 
     }else if(!(regEmail.test(email))){
-        document.getElementById("Pemail").innerHTML = "You have entered an invalid email address!";
+        document.getElementById("Pemail").innerHTML = "You have entered an invalid Email Address!";
         event.preventDefault();
     }else{
         document.getElementById("Pemail").innerHTML = "";
     }
    
    if( (level == 1 || level== 2) && department != "general") {
-        document.getElementById("Pdepart").innerHTML = "Check your level and department, if you are in level 1 or 2 choose department 'General'";
+        document.getElementById("Pdepart").innerHTML = "Check your Level and Department, if you are in Level 1 or 2 choose Department 'General'";
         event.preventDefault();
     }else if( (level == 3 || level== 4) && department == "general") {
-        document.getElementById("Pdepart").innerHTML = "Check your level and department, if you are in level 3 or 4 you have to choose a specific department";
+        document.getElementById("Pdepart").innerHTML = "Check your Level and Department, if you are in Level 3 or 4 you have to choose a specific Department";
         event.preventDefault();
     }else{
         document.getElementById("Pdepart").innerHTML = "";
@@ -82,7 +82,7 @@ function validateForm() {
     if(phone == null || phone == ""){
 
     }else if(phone.length != 11 || isNaN(phone)){
-        document.getElementById("Pphone").innerHTML = "Invalid phone number";
+        document.getElementById("Pphone").innerHTML = "Invalid Phone Number";
         event.preventDefault();
     }else{
         document.getElementById("Pphone").innerHTML = "";
@@ -103,7 +103,7 @@ function addStudent() {
     var department = select2.options[select2.selectedIndex].value;
     var gender = select3.options[select3.selectedIndex].value;
     var date = document.getElementById("date-button").value;
-    var ss = document.querySelector('#Status').checked;
+    var ss = document.querySelector('#SWITCH').checked;
     var Status;
     if (ss) {
         Status = "active";
@@ -116,7 +116,12 @@ function addStudent() {
     request.setRequestHeader("X-CSRFToken", csrftoken);
     request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     request.onload = () => {
-        
+        var res = request.responseText
+        if(res  == "Student added successfully"){
+            window.location.href='/Student_Added';
+        }else {
+            window.location.href='/Student_Exists';
+        }
     }
     request.send(JSON.stringify({
         "id": Sid,
@@ -130,4 +135,5 @@ function addStudent() {
         "date": date,
         "status":Status
     }))
+    
 }
