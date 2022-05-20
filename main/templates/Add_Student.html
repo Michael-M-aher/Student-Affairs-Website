@@ -108,7 +108,8 @@
       </ul>
     </div>
 
-    <form name="myForm" onsubmit="addStudent();return false">
+    <form name="myForm" onsubmit="addStudent();return false" method="post">
+      {% csrf_token %}
       <div id="new-student">
         <div class="photo">
           <img
@@ -241,6 +242,7 @@
       </div>
     </form>
     <script src="{% static 'JS/validatedStudentInfo.js'%}"></script>
+    <script src="{% static 'JS/addStudent.js'%}"></script>
     <script src="{% static 'JS/nav.js'%}"></script>
   </body>
 </html>

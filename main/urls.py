@@ -6,11 +6,11 @@ urlpatterns = [
     path('NewHomePage', views.NewHomePage, name='NewHomePage'),
     path('HomePage', views.home, name='home'),
     path('Add_Student/', views.add_student, name='add_student'),
-    path('Edit_student_data/', views.edit_student, name='edit_student'),
+    path('Edit_student_data/<int:student_id>/', views.edit_student, name='edit_student'),
     path('Search/', views.search, name='search'),
     path('View-all/', views.view_all, name='view_all'),
     path('loginPage/', views.login, name='login'),
-    path('assign/', views.assign, name='assign'),
+    path('assign/<int:student_id>/', views.assign, name='assign'),
     path('DeleteConfirmation/', views.delete_confirmation,
          name='delete_confirmation'),
     path('error/', views.error, name='error'),
@@ -19,5 +19,6 @@ urlpatterns = [
     path('addStudent/', views.addStudent, name='addStudent'),
     path('editStudent/', views.editStudent, name='editStudent'),
     path('searchStudent/', views.searchStudent, name='searchStudent'),
+    path('getAllStudents/', views.getAllStudents, name='getAllStudents'),
     path('deleteStudent/', views.deleteStudent, name='deleteStudent')
 ]

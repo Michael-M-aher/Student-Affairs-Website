@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_protect
 from .models import Student
 
@@ -19,7 +19,7 @@ def add_student(request):
     return render(request, 'Add_Student.html')
 
 
-def edit_student(request):
+def edit_student(request,student_id):
     return render(request, 'Edit_student_data.html')
 
 
@@ -37,7 +37,7 @@ def login(request):
     return render(request, 'loginPage.html')
 
 
-def assign(request):
+def assign(request,student_id):
     return render(request, 'assign.html')
 
 
@@ -61,7 +61,7 @@ def addStudent(request):
     Sid = int(data['id'])
     if (not Student.objects.filter(id=Sid).exists()):
         s = Student()
-        s.id = Sid
+        s.id = int(data['id'])
         s.name = data['name']
         s.gpa = float(data['gpa'])
         s.email = data['email']
@@ -76,7 +76,7 @@ def addStudent(request):
     else:
         return HttpResponse("Student already Exists")
 
-
+@csrf_protect
 def editStudent(request):
     s = Student.objects.filter(id=20200567)[0]
     s.id = 20200567
@@ -92,7 +92,7 @@ def editStudent(request):
     s.save()
     return HttpResponse("Student data edited successfully")
 
-
+@csrf_protect
 def searchStudent(request):
     if Student.objects.filter(id=20200576).__len__() == 0:
         return HttpResponse("Student not found")
@@ -110,8 +110,13 @@ def searchStudent(request):
         s.birth
         return HttpResponse(s.name)
 
-
+@csrf_protect
 def deleteStudent(request):
     s = Student.objects.filter(id=20200576)[0]
     s.delete()
     return HttpResponse("s.name")
+
+@csrf_protect
+def getAllStudents(request):
+    students = list(Student.objects.values())
+    return JsonResponse({"Students": students})
