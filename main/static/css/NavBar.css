@@ -9,7 +9,7 @@ a{
 .nav-right{
     margin-top: -3.5%;
     float:right;
-    width: 32%;
+    width: 22%;
     padding: 1%;
 }
 
@@ -63,7 +63,7 @@ a{
     .nav-right{
         margin-top: -3.6%;
         float:right;
-        width: 33%;
+        width: 22%;
         padding: 1%;
     }
 }
@@ -71,7 +71,7 @@ a{
     .nav-right{
         margin-top: -3.7%;
         float:right;
-        width: 33%;
+        width: 22%;
         padding: 1%;
     }
 }
@@ -79,7 +79,7 @@ a{
     .nav-right{
         margin-top: -3.7%;
         float:right;
-        width: 33%;
+        width: 22%;
         padding: 1%;
     }
 }
@@ -88,7 +88,7 @@ a{
     .nav-right{
         margin-top: -3.8%;
         float:right;
-        width: 33%;
+        width: 22%;
         padding: 1%;
     }
 }
@@ -97,7 +97,7 @@ a{
     .nav-right{
         margin-top: -3.9%;
         float:right;
-        width: 34%;
+        width: 23%;
         padding: 1%;
     }
 }
@@ -106,7 +106,7 @@ a{
     .nav-right{
         margin-top: -4%;
         float:right;
-        width: 35%;
+        width: 24%;
         padding: 1%;
     }
 }
@@ -115,7 +115,7 @@ a{
     .nav-right{
         margin-top: -4.2%;
         float:right;
-        width: 36%;
+        width: 25%;
         padding: 1%;
     }
 }
@@ -124,7 +124,7 @@ a{
     .nav-right{
         margin-top: -4.2%;
         float:right;
-        width: 37%;
+        width: 26%;
         padding: 1%;
     }
 }
@@ -133,7 +133,7 @@ a{
     .nav-right{
         margin-top: -4.2%;
         float:right;
-        width: 38%;
+        width: 27%;
         padding: 1%;
     }
 }
@@ -141,7 +141,7 @@ a{
 @media screen and (max-width: 1245px) {
     .nav-right{
         float:right;
-        width: 39%;
+        width: 28%;
         padding: 1%;
     }
 }
@@ -149,7 +149,7 @@ a{
 @media screen and (max-width: 1212px) {
     .nav-right{
         float:right;
-        width: 40%;
+        width: 29%;
         padding: 1%;
     }
 }
@@ -157,7 +157,7 @@ a{
 @media screen and (max-width: 1180px) {
     .nav-right{
         float:right;
-        width: 41%;
+        width: 30%;
         padding: 1%;
     }
 }
@@ -165,7 +165,7 @@ a{
 @media screen and (max-width: 1151px) {
     .nav-right{
         float:right;
-        width: 42%;
+        width: 31%;
         padding: 1%;
     }
 }
