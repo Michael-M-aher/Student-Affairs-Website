@@ -25,6 +25,8 @@ function editStudent() {
         var res = request.responseText
         if(res  == "Student data edited successfully"){
             window.location.href='/Student_Edited';
+        }else{
+            alert("You Can't edit Student ID");
         }
     }
     request.send(JSON.stringify({
