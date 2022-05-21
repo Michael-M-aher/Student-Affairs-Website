@@ -41,48 +41,31 @@
   </div>
 
         <div class="search">
-            <form action="">
-                <input type="text" placeholder="Student name" class="input-field">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+          <input type="text" placeholder="Student name" class="input-field" id="isearch"  onkeyup="loadSearchStudents()" >
+          <button type="submit" onclick="loadSearchStudents()"><i class="fa fa-search"></i></button>
         </div>
         <div class="tblsearch" >
             <table>
-              <thead>
+              <thead id="tableHead">
                 <tr class="head">
                   <th></th>
                   <th>Name:</th>
                   <th>ID:</th>
+                  <th>Status:</th>
                   <th>Edit</th>
                   <th>Assign department</th>
                 </tr>
               </thead>
-              <tbody>
-                {% for student in Students %}
-                  <tr class="rw">
-                    <td class="img">
+              <tbody id="tableData"></tbody>
               
-                      {% if student.image %}
-                        {% block content %}
-                          <img src="{{ student.image.url }}">
-                        {% endblock %}
-                      {% else %}
-                        {% if student.gender == 'male' %}
-                            <img src="{% static 'images/male_user.png'%}">
-                        {% else %}
-                        <img src="{% static 'images/female_user.png'%}">
-                        {% endif %}
-                      {% endif %}
-                      
-                    </td>
-                    <td class="name">{{student.name}}</td>
-                    <td class="id">{{student.id}}</td>
-                    <td class="btn"><button onclick="window.location.href='/Edit_student_data';"><i class="fas fa-pen" ></i></button></td>
-                    <td class="btn"><a href="/assign" ><img src="{% static 'images/department.png'%}" id="depimg"/></a></td>
-                  </tr>
-                {% endfor %}
-              </tbody>
             </table>
             <script src="{% static 'JS/nav.js'%}"></script>
+            <script src="{% static 'JS/searchStudent.js'%}"></script>
+            <script>
+              if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
+                window.location.reload();
+              }
+            </script>
+            
     </body>
 </html>

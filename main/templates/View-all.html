@@ -63,7 +63,7 @@
 
   <div class="tbl">
     <table>
-      <thead>
+      <thead id="tableHead">
         <tr class="head">
           <th></th>
           <th>Name:</th>
@@ -78,46 +78,9 @@
 
     </table>
   </div>
-
-  <script>
-    request = new XMLHttpRequest();
-    request.open("GET", "/getAllStudents/");
-    csrftoken = document.cookie.split('csrftoken')[1].split('=')[1];
-    request.setRequestHeader("X-CSRFToken", csrftoken);
-    request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-    request.onload = () => {
-      var students = JSON.parse(request.responseText)['Students'];
-      var k = '<tbody>'
-      for (i = 0; i < students.length; i++) {
-        var img, stat;
-        if (students[i]['image'] == '') {
-          if (students[i]['gender'] == 'male') {
-            img = "{% static 'images/male_user.png'%}";
-          } else {
-            img = "{% static 'images/female_user.png'%}";
-          }
-        } else {
-          var p = students[i]['image'].split('static/')[1];
-          img = "{% get_static_prefix %}" + p;
-        }
-        if (students[i]['status'] == 'active') {
-          stat = "<p style = \"color: green\">Active</p>";
-        } else {
-          stat = "<p style = \"color: red\">InActive</p>";
-        }
-        k += '<tr class=\"rw\">';
-        k += '<td class=\"img\"><img src=\"' + img + '\"></td>';
-        k += '<td class=\"name\">' + students[i]['name'] + '</td>';
-        k += '<td class=\"id\">' + students[i]['id'].toString() + '</td>';
-        k += '<td class=\"swtch\">' + stat + '</td>';
-        k += '<td class=\"btn\"><button onclick=\"window.location.href=\'/Edit_student_data\'\"><i class=\"fas fa-pen\" ></i></button></td>';
-        k += '<td class=\"btn\"><a href=\"/assign\" ><img src=\"' + "{% static 'images/department.png'%}" + '\" id=\"depimg\"/></a></td>';
-        k += '</tr>';
-      }
-      k += '</tbody>';
-      document.getElementById('tableData').innerHTML = k;
-    }
-    request.send();
-  </script>
   <script src="{% static 'JS/nav.js'%}"></script>
+  <script src="{% static 'JS/getAllStudents.js'%}"></script>
+  <script>
+    loadStudents();
+  </script>
 </body>

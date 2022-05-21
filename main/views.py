@@ -1,6 +1,8 @@
 import json
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from django.core import serializers
+from django.forms.models import model_to_dict
 from django.views.decorators.csrf import csrf_protect
 from .models import Student
 
@@ -20,17 +22,16 @@ def add_student(request):
 
 
 def edit_student(request,student_id):
-    return render(request, 'Edit_student_data.html')
+    student = Student.objects.get(id=student_id)
+    return render(request, 'Edit_student_data.html',model_to_dict(student))
 
 
 def search(request):
-    students = Student.objects.all()
-    return render(request, 'Search.html', {'Students': students})
+    return render(request, 'Search.html')
 
 
 def view_all(request):
-    students = Student.objects.all()
-    return render(request, 'View-all.html', {'Students': students})
+    return render(request, 'View-all.html')
 
 
 def login(request):
@@ -41,7 +42,7 @@ def assign(request,student_id):
     return render(request, 'assign.html')
 
 
-def delete_confirmation(request):
+def delete_confirmation(request,student_id):
     return render(request, 'DeleteConfirmation.html')
 
 
@@ -57,28 +58,31 @@ def student_exists(request):
 
 @csrf_protect
 def addStudent(request):
-    data = json.loads(request.body)
-    Sid = int(data['id'])
-    if (not Student.objects.filter(id=Sid).exists()):
-        s = Student()
-        s.id = int(data['id'])
-        s.name = data['name']
-        s.gpa = float(data['gpa'])
-        s.email = data['email']
-        s.level = int(data['level'])
-        s.department = data['department']
-        s.gender = data['gender']
-        s.phone = data['phone']
-        s.status = data['status']
-        s.birth = data['date']
-        s.save()
-        return HttpResponse("Student added successfully")
+    if(request.method != "POST"):
+        return HttpResponse("You don't have permissions to use this page")
     else:
-        return HttpResponse("Student already Exists")
+        data = json.loads(request.body)
+        Sid = int(data['id'])
+        if (not Student.objects.filter(id=Sid).exists()):
+            s = Student()
+            s.id = int(data['id'])
+            s.name = data['name']
+            s.gpa = float(data['gpa'])
+            s.email = data['email']
+            s.level = int(data['level'])
+            s.department = data['department']
+            s.gender = data['gender']
+            s.phone = data['phone']
+            s.status = data['status']
+            s.birth = data['date']
+            s.save()
+            return HttpResponse("Student added successfully")
+        else:
+            return HttpResponse("Student already Exists")
 
 @csrf_protect
 def editStudent(request):
-    s = Student.objects.filter(id=20200567)[0]
+    s = Student.objects.get(id=20200567)
     s.id = 20200567
     s.name = "Monica Saeed"
     s.gpa = 3.5
@@ -94,21 +98,18 @@ def editStudent(request):
 
 @csrf_protect
 def searchStudent(request):
-    if Student.objects.filter(id=20200576).__len__() == 0:
-        return HttpResponse("Student not found")
+    if(request.method != "POST"):
+        return HttpResponse("You don't have permissions to see this page")
     else:
-        s = Student.objects.filter(id=20200576)[0]
-        s.id
-        s.name
-        s.gpa
-        s.email
-        s.level
-        s.department
-        s.gender
-        s.phone
-        s.status
-        s.birth
-        return HttpResponse(s.name)
+        data = json.loads(request.body)
+        search_text = data['search_text']
+        if search_text is not None:
+            student = Student.objects.filter(name__startswith=search_text)
+            if (search_text==""):
+                students = {"Students": ''}
+            else:
+                students =  {"Students": list(student.values())}
+            return JsonResponse(students)
 
 @csrf_protect
 def deleteStudent(request):
@@ -118,5 +119,9 @@ def deleteStudent(request):
 
 @csrf_protect
 def getAllStudents(request):
-    students = list(Student.objects.values())
-    return JsonResponse({"Students": students})
+    if(request.method != "GET"):
+        return HttpResponse("You don't have permissions to see this page")
+    else:
+        students = list(Student.objects.values())
+        return JsonResponse({"Students": students})
+    

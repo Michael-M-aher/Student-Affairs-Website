@@ -11,7 +11,7 @@ urlpatterns = [
     path('View-all/', views.view_all, name='view_all'),
     path('loginPage/', views.login, name='login'),
     path('assign/<int:student_id>/', views.assign, name='assign'),
-    path('DeleteConfirmation/', views.delete_confirmation,
+    path('DeleteConfirmation/<int:student_id>/', views.delete_confirmation,
          name='delete_confirmation'),
     path('error/', views.error, name='error'),
     path('Student_Added/', views.student_added, name='student_added'),
