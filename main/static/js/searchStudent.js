@@ -20,7 +20,6 @@ function loadSearchStudents(){
       }else{
         document.getElementById("tableHead").style.display = "table-header-group";
       }
-      console.log(students);
       var k = '<tbody>'
       for (i = 0; i < students.length; i++) {
         var img, stat;

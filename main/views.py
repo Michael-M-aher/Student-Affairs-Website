@@ -23,7 +23,7 @@ def add_student(request):
 
 def edit_student(request,student_id):
     student = Student.objects.get(id=student_id)
-    return render(request, 'Edit_student_data.html',model_to_dict(student))
+    return render(request, 'Edit_student_data.html',{'student':student})
 
 
 def search(request):
@@ -39,11 +39,12 @@ def login(request):
 
 
 def assign(request,student_id):
-    return render(request, 'assign.html')
+    student = Student.objects.get(id=student_id)
+    return render(request, 'assign.html',{'student':student})
 
 
 def delete_confirmation(request,student_id):
-    return render(request, 'DeleteConfirmation.html')
+    return render(request, 'DeleteConfirmation.html',{'id':student_id})
 
 
 def error(request):
@@ -51,6 +52,9 @@ def error(request):
 
 def student_added(request):
     return render(request, 'Student_Added.html')
+
+def student_edited(request):
+    return render(request, 'Student_Edited.html')
 
 def student_exists(request):
     return render(request, 'Student_Exists.html')
@@ -82,19 +86,26 @@ def addStudent(request):
 
 @csrf_protect
 def editStudent(request):
-    s = Student.objects.get(id=20200567)
-    s.id = 20200567
-    s.name = "Monica Saeed"
-    s.gpa = 3.5
-    s.email = "mishoopop6@gmail.com"
-    s.level = 2
-    s.department = "general"
-    s.gender = "male"
-    s.phone = "01285382191"
-    s.status = "ACTIVE"
-    s.birth = "2002-09-13"
-    s.save()
-    return HttpResponse("Student data edited successfully")
+    if(request.method != "POST"):
+        return HttpResponse("You don't have permissions to use this page")
+    else:
+        data = json.loads(request.body)
+        Sid = int(data['id'])
+        if (Student.objects.filter(id=Sid).exists()):
+            s = Student.objects.get(id=Sid)
+            s.id = int(data['id'])
+            s.name = data['name']
+            s.gpa = float(data['gpa'])
+            s.email = data['email']
+            s.level = int(data['level'])
+            s.gender = data['gender']
+            s.phone = data['phone']
+            s.status = data['status']
+            s.birth = data['date']
+            s.save()
+            return HttpResponse("Student data edited successfully")
+        else:
+            return HttpResponse("Student doesn't Exists")
 
 @csrf_protect
 def searchStudent(request):
@@ -113,9 +124,14 @@ def searchStudent(request):
 
 @csrf_protect
 def deleteStudent(request):
-    s = Student.objects.filter(id=20200576)[0]
-    s.delete()
-    return HttpResponse("s.name")
+    if(request.method != "POST"):
+        return HttpResponse("You don't have permissions to see this page")
+    else:
+        data = json.loads(request.body)
+        Sid = data['id']
+        s = Student.objects.get(id=Sid)
+        s.delete()
+        return HttpResponse("Student deleted successfully")
 
 @csrf_protect
 def getAllStudents(request):

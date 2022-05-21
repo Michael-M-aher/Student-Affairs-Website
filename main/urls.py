@@ -15,6 +15,7 @@ urlpatterns = [
          name='delete_confirmation'),
     path('error/', views.error, name='error'),
     path('Student_Added/', views.student_added, name='student_added'),
+    path('Student_Edited/', views.student_edited, name='student_edited'),
     path('Student_Exists/', views.student_exists, name='student_exists'),
     path('addStudent/', views.addStudent, name='addStudent'),
     path('editStudent/', views.editStudent, name='editStudent'),

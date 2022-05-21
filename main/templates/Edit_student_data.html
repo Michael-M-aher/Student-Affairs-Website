@@ -41,11 +41,21 @@
             <a href="/loginPage"><li class="menu-element">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></li></a>
         </ul>
     </div>
-
-    <form>
+    <form onsubmit="editStudent();return false" method="post">
+        {% csrf_token %}
         <div id="student-changes">
             <div id="changes-con">
-                <img id="Student-img" src="{% static 'images/female_user.png'%}" alt="Student picture ">
+                {% if student.image %}
+                    {% block content %}
+                    <img id="Student-img" src="{{ student.image.url }}">
+                    {% endblock %}
+                {% else %}
+                    {% if student.gender == 'male' %}
+                        <img id="Student-img" src="{% static 'images/male_user.png'%}">
+                    {% else %}
+                    <img id="Student-img" src="{% static 'images/female_user.png'%}">
+                    {% endif %}
+                {% endif %}
                 <label for="files" class="btn"><i class="fas fa-pen" style='font-size:15px'></i></label>
                 <input type="file" id="files" style="visibility:hidden;">
     
@@ -53,12 +63,12 @@
                     <!--use label to when a user clicks the text within the <label> element, it toggles the input (this increases the hit area)-->
                     <div class="part">
                         <label class="changes-title">Student Name</label>
-                        <input id="NAME" class="text-input" type="text" value="Sara Mohamed">
+                        <input id="NAME" class="text-input" type="text" value="{{student.name}}">
                         <p class="error" id="Pname"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">Student ID</label>
-                        <input id="IDs" class="text-input" type="text" value="2020222">
+                        <input id="IDs" class="text-input" type="text" value="{{student.id}}">
                         <p class="error" id="Pid"></p>
                     </div>
                     <div class="part">
@@ -68,58 +78,81 @@
                     </div>
                     <div class="part">
                         <label class="changes-title">Email Address</label>
-                        <input id="EMAIL" class="text-input" type="text" value="Sara@gmail.com">
+                        <input id="EMAIL" class="text-input" type="text" value="{{student.email}}">
                         <p class="error" id="Pemail"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">Student Level</label>
                         <select  id="LEVEL"  class="select-button">
-                            <option value="0">2</option>
                             <!--option 0 is 2 to show Sara's level-->
-                            <option value="1">1</option>
-                            <option value="2">3</option>
-                            <option value="3">4</option>
+                            {% if student.level == 1 %}
+                                <option value="1" selected>1</option>
+                                <option value="2" >2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            {% elif student.level == 2 %}
+                                <option value="1">1</option>
+                                <option value="2" selected>2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            {% elif student.level == 3 %}
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3" selected>3</option>
+                                <option value="4">4</option>
+                            {% else %}
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4" selected>4</option>
+                            {% endif %}
                         </select>
                     </div>
                     <div class="part">
                         <label class="changes-title">Department</label>
-                        <i id="department">General</i>
+                        <i id="department">{{student.department}}</i>
                         <!--use i element because not allowed to edit-->
                     </div>
                     <div class="part">
                         <label class="changes-title">Date of birth</label>
-                        <input  id="date-button" type="date" value="2002-07-16">
-                        <!--value is 2002-07-16 to show Sara's birthday-->
+                        <input  id="date-button" type="date" value="">
                         <p class="error" id="Pbirth"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">Gender</label>
                         <select id="GENDER" class="select-button">
-                            <option value="0">Female</option>
-                            <!--option 0 is female to show Sara's gender-->
-                            <option value="1">Male</option>
+                            {% if student.gender == "male" %}
+                                <option value="male" selected>Male</option>
+                                <option value="female">Female</option>
+                            {% else %}
+                                <option value="male">Male</option>
+                                <option value="female" selected>Female</option>
+                            {% endif %}
                         </select>
                     </div>
                     <div class="part">
                         <label class="changes-title">Mobile Number</label>
-                        <input id="PHONE" class="text-input" type="text" value="01111112">
+                        <input id="PHONE" class="text-input" type="text" value="{{student.phone}}">
                         <p class="error" id="Pphone"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">Status</label>
                         <label class="switch">
-                            <input type="checkbox">
+                            {% if student.status == "active" %}
+                                <input type="checkbox" id="SWITCH" checked>
+                            {% else %}
+                                <input type="checkbox" id="SWITCH">
+                            {% endif %}
                             <span class="slider round"></span>
                         </label>
                     </div>
                 </div>
-                <button onclick="validateForm()" type="subimt" id="save">Save</button>
+                <button onclick="validateForm('edit');" type="submit" class="submit" id="save">Save</button>
             </div>
         </div>
     </form>
     
 
-    <form>
         <div id="student-info">
             <div id="info-con">
                 <h2>Student Information</h2>
@@ -127,52 +160,67 @@
                     <!-- span is the block-level elements in HTML -->
                     <li>
                         <span class="data-title">Student Name: </span>
-                        <i>Sara Mohamed</i>
+                        <i>{{student.name}}</i>
                     </li>
                     <li>
                         <span class="data-title">Student ID: </span>
-                        <i>20202222</i>
+                        <i>{{student.id}}</i>
                     </li>
                     <li>
                         <span class="data-title">GPA: </span>
-                        <i>3.33</i>
+                        <i>{{student.gpa}}</i>
                     </li>
                     <li>
                         <span class="data-title">Email Address: </span>
-                        <i>Sara@gmail.com</i>
+                        <i>{{student.email}}</i>
                     </li>
                     <li>
                         <span class="data-title">Student level: </span>
-                        <i>2</i>
+                        <i>{{student.level}}</i>
                     </li>
                     <li>
                         <span class="data-title">Department: </span>
-                        <i>General</i>
+                        <i>{{student.department}}</i>
                     </li>
                     <li>
                         <span class="data-title">Date of birth: </span>
-                        <i>16/7/2002</i>
+                        <i>{{student.birth}}</i>
                     </li>
                     <li>
                         <span class="data-title">Gender: </span>
-                        <i>female</i>
+                        <i>{{student.gender}}</i>
                     </li>
                     <li>
                         <span class="data-title">Mobile Number: </span>
-                        <i>01111112</i>
+                        <i>{{student.phone}}</i>
                     </li>
                     <li>
                         <span class="data-title">Status: </span>
-                        <i>Inactive</i>
+                        <i>{{student.status}}</i>
                     </li>
                 </ul>
                 
-                <button type="button" id="delete" onclick="window.location.href='/DeleteConfirmation'">Delete</button>
+                <button type="button" id="delete" onclick="redirectDelete('{{student.id}}')">Delete</button>
             </div>
         </div>
-    </form>
     
     <script src="{% static 'JS/validatedStudentInfo.js'%}"></script>
     <script src="{% static 'JS/nav.js'%}"></script>
+    <script src="{% static 'JS/editStudent.js'%}"></script>
+    <script src="{% static 'JS/deleteStudent.js'%}"></script>
+    <script>
+        if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
+          window.location.reload();
+        }
+        var myDate = new Date("{{student.birth}}");
+        var date = myDate.getDate();
+        var month = myDate.getMonth();
+        var year = myDate.getFullYear();
+        function pad(n) {
+            return n<10 ? '0'+n : n
+        }
+        document.getElementById("date-button").value = (year + "-" + pad(month + 1) + "-" + pad(date));
+    </script>
 </body>
 </html>
+
