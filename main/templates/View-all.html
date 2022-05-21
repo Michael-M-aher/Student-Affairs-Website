@@ -61,6 +61,9 @@
   <script src="{% static 'JS/nav.js'%}"></script>
   <script src="{% static 'JS/getAllStudents.js'%}"></script>
   <script>
+    if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
+      window.location.reload();
+    }
     loadStudents();
   </script>
 </body>

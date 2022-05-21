@@ -41,7 +41,7 @@
             <a href="/loginPage"><li class="menu-element">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></li></a>
         </ul>
     </div>
-    <form onsubmit="editStudent();return false" method="post">
+    <form onsubmit="editStudent('{{student.id}}');return false" method="post">
         {% csrf_token %}
         <div id="student-changes">
             <div id="changes-con">

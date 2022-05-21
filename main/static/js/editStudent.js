@@ -1,4 +1,4 @@
-function editStudent() {
+function editStudent(Stid) {
     var name = document.getElementById("NAME").value;
     var Sid = document.getElementById("IDs").value;
     var gpa = document.getElementById("GPA").value;
@@ -16,29 +16,33 @@ function editStudent() {
     } else {
         Status = "inactive";
     }
-    request = new XMLHttpRequest();
-    request.open("POST", "/editStudent/");
-    csrftoken = document.cookie.split('csrftoken')[1].split('=')[1];
-    request.setRequestHeader("X-CSRFToken", csrftoken);
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    request.onload = () => {
-        var res = request.responseText
-        if(res  == "Student data edited successfully"){
-            window.location.href='/Student_Edited';
-        }else{
-            alert("You Can't edit Student ID");
+    if(Stid == Sid){
+        request = new XMLHttpRequest();
+        request.open("POST", "/editStudent/");
+        csrftoken = document.cookie.split('csrftoken')[1].split('=')[1];
+        request.setRequestHeader("X-CSRFToken", csrftoken);
+        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        request.onload = () => {
+            var res = request.responseText
+            if(res  == "Student data edited successfully"){
+                window.location.href='/Student_Edited';
+            }else{
+                alert("You Can't edit Student ID");
+            }
         }
+        request.send(JSON.stringify({
+            "id": Sid,
+            "name": name,
+            "gpa": gpa,
+            "email": email,
+            "phone": phone,
+            "level": level,
+            "gender": gender,
+            "date": date,
+            "status":Status
+        }))
+    }else{
+        alert("You Can't edit Student ID");
     }
-    request.send(JSON.stringify({
-        "id": Sid,
-        "name": name,
-        "gpa": gpa,
-        "email": email,
-        "phone": phone,
-        "level": level,
-        "gender": gender,
-        "date": date,
-        "status":Status
-    }))
     
 }
