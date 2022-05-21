@@ -45,9 +45,7 @@
         <div id="student-changes">
             <div id="changes-con">
                 {% if student.image %}
-                    {% block content %}
                     <img id="Student-img" src="{{ student.image.url }}">
-                    {% endblock %}
                 {% else %}
                     {% if student.gender == 'male' %}
                         <img id="Student-img" src="{% static 'images/male_user.png'%}">
