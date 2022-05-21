@@ -32,8 +32,7 @@ function loadStudents(){
             img = "/main/static/images/female_user.png";
           }
         } else {
-          var p = students[i]['image'].split('static/')[1];
-          img = "/main/static/" + p;
+          img = "/"+students[i]['image'];
         }
         if (students[i]['status'] == 'active') {
           stat = "<p style = \"color: green\">Active</p>";
