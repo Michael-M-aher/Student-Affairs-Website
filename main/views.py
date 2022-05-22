@@ -21,9 +21,9 @@ def add_student(request):
     return render(request, 'Add_Student.html')
 
 
-def edit_student(request,student_id):
+def edit_student(request, student_id):
     student = Student.objects.get(id=student_id)
-    return render(request, 'Edit_student_data.html',{'student':student})
+    return render(request, 'Edit_student_data.html', {'student': student})
 
 
 def search(request):
@@ -38,23 +38,26 @@ def login(request):
     return render(request, 'loginPage.html')
 
 
-def assign(request,student_id):
+def assign(request, student_id):
     student = Student.objects.get(id=student_id)
-    return render(request, 'assign.html',{'student':student})
+    return render(request, 'assign.html', {'student': student})
 
 
-def delete_confirmation(request,student_id):
-    return render(request, 'DeleteConfirmation.html',{'id':student_id})
+def delete_confirmation(request, student_id):
+    return render(request, 'DeleteConfirmation.html', {'id': student_id})
 
 
 def error(request):
     return render(request, 'error.html')
 
+
 def student_added(request):
     return render(request, 'Student_Added.html')
 
+
 def student_edited(request):
     return render(request, 'Student_Edited.html')
+
 
 def student_exists(request):
     return render(request, 'Student_Exists.html')
@@ -84,6 +87,7 @@ def addStudent(request):
         else:
             return HttpResponse("Student already Exists")
 
+
 @csrf_protect
 def editStudent(request):
     if(request.method != "POST"):
@@ -107,6 +111,7 @@ def editStudent(request):
         else:
             return HttpResponse("Student doesn't Exists")
 
+
 @csrf_protect
 def searchStudent(request):
     if(request.method != "POST"):
@@ -116,11 +121,12 @@ def searchStudent(request):
         search_text = data['search_text']
         if search_text is not None:
             student = Student.objects.filter(name__startswith=search_text)
-            if (search_text==""):
+            if (search_text == ""):
                 students = {"Students": ''}
             else:
-                students =  {"Students": list(student.values())}
+                students = {"Students": list(student.values())}
             return JsonResponse(students)
+
 
 @csrf_protect
 def deleteStudent(request):
@@ -133,6 +139,7 @@ def deleteStudent(request):
         s.delete()
         return HttpResponse("Student deleted successfully")
 
+
 @csrf_protect
 def getAllStudents(request):
     if(request.method != "GET"):
@@ -140,4 +147,19 @@ def getAllStudents(request):
     else:
         students = list(Student.objects.values())
         return JsonResponse({"Students": students})
-    
+
+
+@csrf_protect
+def assignStudent(request):
+    if(request.method != "POST"):
+        return HttpResponse("You don't have permissions to use this page")
+    else:
+        data = json.loads(request.body)
+        Sid = int(data['id'])
+        if (Student.objects.filter(id=Sid).exists()):
+            s = Student.objects.get(id=Sid)
+            s.department = data['department']
+            s.save()
+            return HttpResponse("Student department edited successfully")
+        else:
+            return HttpResponse("Student doesn't Exists")

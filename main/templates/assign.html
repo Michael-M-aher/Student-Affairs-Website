@@ -40,32 +40,66 @@
     
     <div class="student">
         <div id="assign">
-            <img id="Student-img" src="{% static 'images/female_user.png'%}" alt="Student picture ">
+            {% if student.image %}
+                <img id="Student-img" src="{{ student.image.url }}">
+            {% else %}
+                {% if student.gender == 'male' %}
+                    <img id="Student-img" src="{% static 'images/male_user.png'%}">
+                {% else %}
+                    <img id="Student-img" src="{% static 'images/female_user.png'%}">
+                {% endif %}
+            {% endif %}
             <br>
             <div class="student's info">
-                <p class="text-input" type="text" id="id"> <b> Student ID : </b> <i>20202232</i></p>
-                <p class="text-input" type="text" id="name"> <b> Student Name : </b> <i>Mohamed Ahmed</i></p>
-                <p class="text-input" type="text" id="level"> <b> Student Level : </b><i id = "l">2</i></p>
+                <p class="text-input" type="text" id="id"> <b> Student ID : </b> <i>{{student.id}}</i></p>
+                <p class="text-input" type="text" id="name"> <b> Student Name : </b> <i>{{student.name}}</i></p>
+                <p class="text-input" type="text" id="level"> <b> Student Level : </b><i id = "l">{{student.level}}</i></p>
                 <br>
                 <div class="choose_dep">
                     <label for="department"><b>Choose Department :</b></label>
                     <select name="department" id="dep" class="opt-btutton">
-                        <option hidden value="0">choose department</option>
-                        <option value="1">CS</option>
-                        <option value="2">IS</option>
-                        <option value="3">AI</option>
-                        <option value="4">IT</option>
-                        <option value="5">DS</option>
+                        {% if student.department == "cs" %}
+                                <option value="cs" selected>CS</option>
+                                <option value="is">IS</option>
+                                <option value="it">IT</option>
+                                <option value="ds">DS</option>
+                                <option value="ai">AI</option>
+                            {% elif student.department == "is" %}
+                                <option value="cs">CS</option>
+                                <option value="is" selected>IS</option>
+                                <option value="it">IT</option>
+                                <option value="ds">DS</option>
+                                <option value="ai">AI</option>
+                            {% elif student.department == "it" %}
+                                <option value="cs">CS</option>
+                                <option value="is">IS</option>
+                                <option value="it" selected>IT</option>
+                                <option value="ds">DS</option>
+                                <option value="ai">AI</option>
+                            {% elif student.department == "ds" %}
+                                <option value="cs">CS</option>
+                                <option value="is">IS</option>
+                                <option value="it">IT</option>
+                                <option value="ds" selected>DS</option>
+                                <option value="ai">AI</option>
+                            {% else %}
+                                <option value="cs">CS</option>
+                                <option value="is">IS</option>
+                                <option value="it">IT</option>
+                                <option value="ds">DS</option>
+                                <option value="ai" selected>AI</option>
+                            {% endif %}
                     </select>
                 </div><br>
             </div>
-            <div><button class="sub" onclick="validatedepart()">Submit</button>
+            <div><button class="sub" onclick="assignStudent('{{student.id}}')">Submit</button>
             </div>
         </div>
 
     </div>
     <script src="{% static 'JS/validatedStudentInfo.js'%}"></script>
     <script src="{% static 'JS/nav.js'%}"></script>
+    <script src="{% static 'JS/assign.js'%}"></script>
 </body>
 
 </html>
