@@ -20,7 +20,8 @@
         </script>
     </head>
     <body>
-        <form  method="post" action="">
+        <form  method="post" onsubmit="USER(); return false">
+            {% csrf_token %}
             <div class="container">
                 <a><img src="{% static 'images/logo.png'%}"
                 width="170" height="140"></a>
@@ -36,9 +37,10 @@
                         <br>
                         <br>
                         <!--<input type="submit" value="login" id="login">--> 
-                        <button type="submit" onclick="redirect();" id="login">login</button>
+                        <button type="submit"  id="login">login</button>
             </div>
         </form>
+        <script src="{% static 'JS/login.js'%}"></script>
     </body>
 
 </html>
