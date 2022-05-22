@@ -9,13 +9,12 @@ function USER()
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.onload = () => {
         var res = request.responseText
-        console.log(res);
 
-        if(res=="login successfully")
-        {
+        if(res=="login successfully"){
             window.location.href='/HomePage';
+        }else{
+            alert(res);
         }
-        alert(res);
     }
     request.send(JSON.stringify({
         

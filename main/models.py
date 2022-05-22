@@ -54,3 +54,11 @@ class Student(models.Model):
         upload_to='main/static/profilePhotos/', blank=True)
 
     # Student( id = 20200576,name = "Michael",gpa = 3.5,email = "mishoopop6@gmail.com",level = 2,department = "general",gender = "male",phone = "01285382191",status="ACTIVE",birth = "2002-09-13")
+
+class impDate(models.Model):
+    event = models.CharField(max_length=200)
+    date = models.DateField(blank=True)
+    
+class New(models.Model):
+    header = models.CharField(max_length=200)
+    content = models.TextField()

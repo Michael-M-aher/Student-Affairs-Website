@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from django.forms.models import model_to_dict
 from django.views.decorators.csrf import csrf_protect
-from .models import Student,Staff
+from .models import Student,Staff,impDate,New
 
 # Create your views here.
 
@@ -159,6 +159,15 @@ def getAllStudents(request):
     else:
         students = list(Student.objects.values())
         return JsonResponse({"Students": students})
+
+@csrf_protect
+def getHomepage(request):
+    if(request.method != "GET"):
+        return HttpResponse("You don't have permissions to see this page")
+    else:
+        news = list(New.objects.values())
+        events = list(impDate.objects.values())
+        return JsonResponse({"news": news,"events":events})
 
 
 @csrf_protect
