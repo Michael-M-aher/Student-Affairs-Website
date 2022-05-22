@@ -33,20 +33,20 @@
 table {
     border-collapse: collapse;
 }
-.tbl,.tblsearch{
+.tbl{
     display: flex;
     justify-content: center;
     margin-top: 80px;
     margin-right: 60px;
 }
-.tbl button, .tblsearch button{
+.tbl button{
     cursor: pointer;
     width: 40px;
     border: solid transparent;
     background: transparent;
     opacity: 0.8; 
 }
-.tbl img, .tblsearch img{
+.tbl img{
     width: 90px;
     height: 90px;
 }
@@ -75,17 +75,12 @@ td {
 td i{
     font-size:26px
 }
-.tblsearch td{
-    padding: 50px 150px;
-}
+
 td.btn{
     padding: 50px 70px;
     
 }
 td.img{
-    padding: 0 0px;
-}
-.tblsearch td.img{
     padding: 0 0px;
 }
 
@@ -146,12 +141,12 @@ border-radius: 50%;
 
 @media only screen and (max-width: 1370px) {
     /* For desktop: */
-    .tbl,.tblsearch{
+    .tbl{
         
         margin-right: 5px;
     }
     
-    .tbl img, .tblsearch img{
+    .tbl img{
         width: 50px;
         height: 50px;
     }
@@ -169,9 +164,7 @@ border-radius: 50%;
     td i{
         font-size: 15px
     }
-    .tblsearch td{
-        padding: 20px 70px;
-    }
+
     td.btn{
         padding: 50px 35px;
     }
@@ -219,13 +212,11 @@ border-radius: 50%;
     td i{
         font-size: 17px
     }
-    .tblsearch td{
-        padding: 50px 110px;
-    }
+    
     td.btn{
         padding: 50px 50px;
     }
-    .tbl img, .tblsearch img{
+    .tbl img{
         width: 60px;
         height: 60px;
     }
@@ -268,15 +259,13 @@ border-radius: 50%;
     }
 }
 @media only screen and (min-width: 1380px) and (max-width: 1750px){
-    .tbl,.tblsearch{
+    .tbl{
         margin-right: 30px;
     }
     td {
         padding: 50px 90px;
     }
-    .tblsearch td{
-        padding: 50px 110px;
-    }
+    
     td.btn{
         padding: 50px 60px;
     }
@@ -285,9 +274,5 @@ border-radius: 50%;
     td {
         padding: 50px 110px;
     }
-    .tblsearch td{
-        padding: 50px 130px;
-    }
-    
 }
 

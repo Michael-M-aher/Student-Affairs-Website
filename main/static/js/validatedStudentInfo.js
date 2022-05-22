@@ -22,6 +22,8 @@ function validateForm(vtype) {
     if(vtype == 'add'){
         var select2 = document.getElementById("DEPARTMENT");
         var department = select2.options[select2.selectedIndex].value;
+    }else{
+        department = document.getElementById("department").innerHTML
     }
     var regName = /^[a-zA-Z]+( [a-zA-Z]+)+$/ ;
     if(name == null || name == ""){
@@ -63,17 +65,21 @@ function validateForm(vtype) {
         document.getElementById("Pemail").innerHTML = "";
     }
    
-    if(vtype == 'add'){
-        if( (level == 1 || level== 2) && department != "general") {
-            document.getElementById("Pdepart").innerHTML = "Check your Level and Department, if you are in Level 1 or 2 choose Department 'General'";
-            event.preventDefault();
-        }else if( (level == 3 || level== 4) && department == "general") {
-            document.getElementById("Pdepart").innerHTML = "Check your Level and Department, if you are in Level 3 or 4 you have to choose a specific Department";
-            event.preventDefault();
+
+    if( (level == 1 || level== 2) && department != "general") {
+        if(vtype == "edit"){
+            document.getElementById("Pdepart").innerHTML = "Check your Level if you are in Level 1 or 2 you can't be in Departmen except 'General'";
         }else{
-            document.getElementById("Pdepart").innerHTML = "";
+            document.getElementById("Pdepart").innerHTML = "Check your Level and Department, if you are in Level 1 or 2 choose Department 'General'";
         }
+        event.preventDefault();
+    }else if(vtype=="add" && (level == 3 || level== 4) && department == "general") {
+        document.getElementById("Pdepart").innerHTML = "Check your Level and Department, if you are in Level 3 or 4 you have to choose a specific Department";
+        event.preventDefault();
+    }else{
+        document.getElementById("Pdepart").innerHTML = "";
     }
+
     
     let age = calcAge();
     if(age < 16){

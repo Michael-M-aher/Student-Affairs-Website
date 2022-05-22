@@ -40,7 +40,7 @@
             <a href="/loginPage"><li class="menu-element">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></li></a>
         </ul>
     </div>
-    <form onsubmit="editStudent('{{student.id}}');return false" method="post">
+    <form onsubmit="return (validateId())" action="/Edit_student_data/{{student.id}}/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div id="student-changes">
             <div id="changes-con">
@@ -54,7 +54,7 @@
                     {% endif %}
                 {% endif %}
                 <label for="files" class="btn"><i class="fas fa-pen" style='font-size:15px'></i></label>
-                <input type="file" id="files" style="visibility:hidden;">
+                <input type="file" id="files" name="img" style="visibility:hidden;">
     
                 <div id="center">
                     <!--use label to when a user clicks the text within the <label> element, it toggles the input (this increases the hit area)-->
@@ -65,12 +65,12 @@
                     </div>
                     <div class="part">
                         <label class="changes-title">Student ID</label>
-                        <input id="IDs" name="id" class="text-input" type="text" value="{{student.id}}">
+                        <input id="IDs" name="Sid" class="text-input" type="text" value="{{student.id}}">
                         <p class="error" id="Pid"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">GPA</label>
-                        <input id="GPA" name="gpa" class="text-input" type="text" value="3.33">
+                        <input id="GPA" name="gpa" class="text-input" type="text" value="{{student.gpa}}">
                         <p class="error" id="Pgpa"></p>
                     </div>
                     <div class="part">
@@ -104,6 +104,7 @@
                                 <option value="4" selected>4</option>
                             {% endif %}
                         </select>
+                        <p class="error" id="Pdepart"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">Department</label>
@@ -112,7 +113,7 @@
                     </div>
                     <div class="part">
                         <label class="changes-title">Date of birth</label>
-                        <input  id="date-button" name="department" type="date" value="">
+                        <input  id="date-button" name="birth" type="date" value="">
                         <p class="error" id="Pbirth"></p>
                     </div>
                     <div class="part">
@@ -135,7 +136,7 @@
                     <div class="part">
                         <label class="changes-title">Status</label>
                         <label class="switch">
-                            <input type="checkbox"  id="SWITCH" name="status"
+                            <input type="checkbox" id="SWITCH" name="status"
                             {% if student.status == "active" %}
                                  checked
                             {% endif %}
@@ -217,6 +218,17 @@
             return n<10 ? '0'+n : n
         }
         document.getElementById("date-button").value = (year + "-" + pad(month + 1) + "-" + pad(date));
+        if(('{{student.level}}' == 3 || '{{student.level}}'== 4) && '{{student.department}}' == "general") {
+            document.getElementById("Pdepart").innerHTML = "if you are in Level 3 or 4 you have to choose a specific Department from Assign Department page";
+        }else{
+            document.getElementById("Pdepart").innerHTML = "";
+        }
+        function validateId(){
+            if('{{student.id}}' != document.getElementById("IDs").value){
+                alert("You Can't edit Student ID");
+                return false;
+            }
+        }
     </script>
 </body>
 </html>

@@ -43,7 +43,7 @@
         </ul>
     </div>
 
-    <form name="myForm" onsubmit="addStudent();return false" method="post">
+    <form name="myForm" action="/Add_Student/" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <div id="new-student">
         <div class="photo">
@@ -52,10 +52,9 @@
             src="{% static 'images/general_user.jpg'%}"
             alt="Student picture "
           />
-          <label for="files" class="btn"
-            ><i class="fas fa-pen" style="font-size: 15px"></i
-          ></label>
-          <input type="file" name="upload" accept="image/*" style="visibility: hidden">
+          <label for="files" class="btn"><i class="fas fa-pen" style='font-size:15px'></i></label>
+          <input type="file" id="files" name="img" style="visibility:hidden;">
+          
         </div>
         <div class="name">
           <label class="student-title">Student Name:</label><br />
@@ -74,7 +73,7 @@
           <label class="student-title">Student ID:</label><br />
           <input
             id="IDs"
-            name="id"
+            name="Sid"
             class="text-input"
             type="text"
             placeholder="20######"
@@ -138,7 +137,7 @@
         <br />
         <div class="birthdate">
           <label class="student-title">Date of birth:</label><br />
-          <input id="date-button" name="date" class="date-button" type="date" required />
+          <input id="date-button" name="birth" class="date-button" type="date" required />
           <!--value  is 2002-07-16 to show Sara's birthday-->
           <p class="error" id="Pbirth"></p>
         </div>

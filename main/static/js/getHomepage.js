@@ -15,7 +15,7 @@ function getData(){
       var events = JSON.parse(request.responseText)['events'];
       var news = JSON.parse(request.responseText)['news'];
       var k = ''
-      for (i = 0; i < events.length; i++) {
+      for (i = events.length-1; i >= 0; i--) {
         var myDate = new Date(events[i]['date']);
         var day = myDate.getDate();
         var month = myDate.getMonth();
@@ -25,7 +25,7 @@ function getData(){
       }
       document.getElementById('events').innerHTML = k;
       var k = ''
-      for (i = 0; i < news.length; i++) {
+      for (i = news.length-1; i >=0 ; i--) {
         k+='<div class=\"functionalareas\" >'+news[i]['header']+ ":"+ news[i]['content'] +'</div>';
       }
       document.getElementById('news').innerHTML = k;

@@ -9,7 +9,6 @@ function USER()
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.onload = () => {
         var res = request.responseText
-
         if(res=="login successfully"){
             window.location.href='/HomePage';
         }else{
