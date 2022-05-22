@@ -14,7 +14,6 @@ urlpatterns = [
     path('assign/<int:student_id>/', views.assign, name='assign'),
     path('DeleteConfirmation/<int:student_id>/', views.delete_confirmation,
          name='delete_confirmation'),
-    path('error/', views.error, name='error'),
     path('Student_Added/', views.student_added, name='student_added'),
     path('Student_Edited/', views.student_edited, name='student_edited'),
     path('Student_Exists/', views.student_exists, name='student_exists'),

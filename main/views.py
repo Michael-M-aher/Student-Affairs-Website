@@ -1,5 +1,5 @@
 import json
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from django.forms.models import model_to_dict
@@ -40,15 +40,14 @@ def login(request):
 
 def assign(request, student_id):
     student = Student.objects.get(id=student_id)
-    return render(request, 'assign.html', {'student': student})
+    if (student.level == 1 or student.level == 2):
+        return render(request, 'error.html')
+    else:
+        return render(request, 'assign.html', {'student': student})
 
 
 def delete_confirmation(request, student_id):
     return render(request, 'DeleteConfirmation.html', {'id': student_id})
-
-
-def error(request):
-    return render(request, 'error.html')
 
 
 def student_added(request):
