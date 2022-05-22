@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from django.forms.models import model_to_dict
 from django.views.decorators.csrf import csrf_protect
-from .models import Student
+from .models import Student,Staff
 
 # Create your views here.
 
@@ -61,6 +61,19 @@ def student_edited(request):
 def student_exists(request):
     return render(request, 'Student_Exists.html')
 
+@csrf_protect
+def Authentication(request):
+    data = json.loads(request.body)
+    S_username=str(data['username'])
+    S_password=str(data['password'])
+    if(Staff.objects.filter(username=S_username).exists()):
+        user=Staff.objects.get(username=S_username)
+        if(user.password==S_password):
+            return HttpResponse("login successfully")
+        else:
+            return HttpResponse("incorrect password")
+    else:
+        return HttpResponse("username incorrect or not found")
 
 @csrf_protect
 def addStudent(request):
