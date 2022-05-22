@@ -3,14 +3,14 @@ from . import views
 
 urlpatterns = [
     path('', views.NewHomePage, name='NewHomePage'),
-    path('NewHomePage', views.NewHomePage, name='NewHomePage'),
-    path('HomePage', views.home, name='home'),
+    path('NewHomePage/', views.NewHomePage, name='NewHomePage'),
+    path('HomePage/', views.home, name='home'),
     path('Add_Student/', views.add_student, name='add_student'),
     path('Edit_student_data/<int:student_id>/',
          views.edit_student, name='edit_student'),
     path('Search/', views.search, name='search'),
     path('View-all/', views.view_all, name='view_all'),
-    path('loginPage/', views.login, name='login'),
+    path('loginPage/', views.signin, name='signin'),
     path('assign/<int:student_id>/', views.assign, name='assign'),
     path('DeleteConfirmation/<int:student_id>/', views.delete_confirmation,
          name='delete_confirmation'),
@@ -24,5 +24,5 @@ urlpatterns = [
     path('getHomepage/', views.getHomepage, name='getHomepage'),
     path('deleteStudent/', views.deleteStudent, name='deleteStudent'),
     path('assignStudent/', views.assignStudent, name='assignStudent'),
-    path('Authentication/',views.Authentication, name='Authentication')
+    path('signout/',views.signout, name='signout')
 ]

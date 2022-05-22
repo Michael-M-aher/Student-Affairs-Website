@@ -1,13 +1,6 @@
 from django.db import models
 
 # Create your models here.
-class Staff(models.Model):
-    def __str__(self):
-        return str(self.username)
-    username = models.CharField(max_length=50,primary_key=True)
-    password = models.CharField(max_length=50)
-
-
 class Student(models.Model):
     def __str__(self):
         return str(self.id)

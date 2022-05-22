@@ -60,27 +60,27 @@
                     <!--use label to when a user clicks the text within the <label> element, it toggles the input (this increases the hit area)-->
                     <div class="part">
                         <label class="changes-title">Student Name</label>
-                        <input id="NAME" class="text-input" type="text" value="{{student.name}}">
+                        <input id="NAME" name="name" class="text-input" type="text" value="{{student.name}}">
                         <p class="error" id="Pname"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">Student ID</label>
-                        <input id="IDs" class="text-input" type="text" value="{{student.id}}">
+                        <input id="IDs" name="id" class="text-input" type="text" value="{{student.id}}">
                         <p class="error" id="Pid"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">GPA</label>
-                        <input id="GPA" class="text-input" type="text" value="3.33">
+                        <input id="GPA" name="gpa" class="text-input" type="text" value="3.33">
                         <p class="error" id="Pgpa"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">Email Address</label>
-                        <input id="EMAIL" class="text-input" type="text" value="{{student.email}}">
+                        <input id="EMAIL" name="email" class="text-input" type="text" value="{{student.email}}">
                         <p class="error" id="Pemail"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">Student Level</label>
-                        <select  id="LEVEL"  class="select-button">
+                        <select  id="LEVEL" name="level"  class="select-button">
                             <!--option 0 is 2 to show Sara's level-->
                             {% if student.level == 1 %}
                                 <option value="1" selected>1</option>
@@ -112,12 +112,12 @@
                     </div>
                     <div class="part">
                         <label class="changes-title">Date of birth</label>
-                        <input  id="date-button" type="date" value="">
+                        <input  id="date-button" name="department" type="date" value="">
                         <p class="error" id="Pbirth"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">Gender</label>
-                        <select id="GENDER" class="select-button">
+                        <select id="GENDER" name="gender" class="select-button">
                             {% if student.gender == "male" %}
                                 <option value="male" selected>Male</option>
                                 <option value="female">Female</option>
@@ -129,17 +129,17 @@
                     </div>
                     <div class="part">
                         <label class="changes-title">Mobile Number</label>
-                        <input id="PHONE" class="text-input" type="text" value="{{student.phone}}">
+                        <input id="PHONE" name="phone" class="text-input" type="text" value="{{student.phone}}">
                         <p class="error" id="Pphone"></p>
                     </div>
                     <div class="part">
                         <label class="changes-title">Status</label>
                         <label class="switch">
+                            <input type="checkbox"  id="SWITCH" name="status"
                             {% if student.status == "active" %}
-                                <input type="checkbox" id="SWITCH" checked>
-                            {% else %}
-                                <input type="checkbox" id="SWITCH">
+                                 checked
                             {% endif %}
+                            >
                             <span class="slider round"></span>
                         </label>
                     </div>

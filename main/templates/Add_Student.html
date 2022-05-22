@@ -61,6 +61,7 @@
           <label class="student-title">Student Name:</label><br />
           <input
             id="NAME"
+            name="name"
             class="text-input"
             type="text"
             placeholder="Enter Student Name"
@@ -73,6 +74,7 @@
           <label class="student-title">Student ID:</label><br />
           <input
             id="IDs"
+            name="id"
             class="text-input"
             type="text"
             placeholder="20######"
@@ -85,6 +87,7 @@
           <label class="student-title">GPA:</label><br />
           <input
             id="GPA"
+            name="gpa"
             class="text-input"
             type="text"
             placeholder="Enter GPA value"
@@ -97,6 +100,7 @@
           <label class="student-title">Email Address:</label><br />
           <input
             id="EMAIL"
+            name="email"
             class="text-input"
             type="text"
             placeholder="Enter Student Email Address"
@@ -107,7 +111,7 @@
         <br />
         <div class="level">
           <label class="student-title">Student Level:</label><br />
-          <select id="LEVEL" class="select-button" required>
+          <select id="LEVEL" class="select-button" name="level" required>
             <option value="" disabled selected hidden>Choose a level</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -118,7 +122,7 @@
         <br />
         <div class="department">
           <label class="student-title">Department:</label><br />
-          <select id="DEPARTMENT" class="select-button" required>
+          <select id="DEPARTMENT" name="department" class="select-button" required>
             <option value="" disabled selected hidden>
               Choose a Department
             </option>
@@ -134,14 +138,14 @@
         <br />
         <div class="birthdate">
           <label class="student-title">Date of birth:</label><br />
-          <input id="date-button" class="date-button" type="date" required />
+          <input id="date-button" name="date" class="date-button" type="date" required />
           <!--value  is 2002-07-16 to show Sara's birthday-->
           <p class="error" id="Pbirth"></p>
         </div>
         <br />
         <div class="gender">
           <label class="student-title">Gender:</label><br />
-          <select id="GENDER" class="select-button" required>
+          <select id="GENDER" name="gender" class="select-button" required>
             <option value="" disabled selected hidden>Choose a gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -152,6 +156,7 @@
           <label class="student-title">Mobile Number:</label><br />
           <input
             id="PHONE"
+            name="phone"
             class="text-input"
             type="text"
             placeholder="01#########"
@@ -163,7 +168,7 @@
         <div class="status">
           <label class="student-title">Status:</label>
           <label class="switch">
-            <input type="checkbox" id="SWITCH" />
+            <input type="checkbox" id="SWITCH" name="status" />
             <span class="slider round"></span>
           </label>
         </div>

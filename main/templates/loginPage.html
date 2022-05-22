@@ -1,48 +1,35 @@
 {% load static %}
-<!DOCTYPE html> 
-<html> 
-    <head>
-        <title>login page</title>
-        <link rel="stylesheet" href="{% static 'css/loginPagestyle.css'%}">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script>
-            function redirect()
-            {
-                var user = document.getElementById("username").value;
-                var pass = document.getElementById("password").value;
-                if(user == null || user == ""||pass == null || pass == ""){
+<!DOCTYPE html>
+<html>
 
-                }else{
-                    event.preventDefault();
-                    window.location.href = '/HomePage';
-                }
-            }
-        </script>
-    </head>
-    <body>
-        <form  method="post" onsubmit="USER(); return false">
-            {% csrf_token %}
-            <div class="container">
-                <a><img src="{% static 'images/logo.png'%}"
-                width="170" height="140"></a>
-                    <br>
-                    <input class="input-name" type="text" id="username" name="username" placeholder="Enter username" required>
-                        <label for="password"></label>
-                        <input class="input-pass" type="password" id="password" name="password" placeholder="Enter password" required>
-                        <p class="error" id="name&pass"></p>
-                        <label ><input class="inputs" type="checkbox" checked="checked" name="remember"> Remember me</label>
-                        <br>
-                        <br>
-                        <a id="link" href="#">Forgot your password? </a>
-                        <br>
-                        <br>
-                        <!--<input type="submit" value="login" id="login">--> 
-                        <button type="submit"  id="login">login</button>
-            </div>
-        </form>
-        <script src="{% static 'JS/login.js'%}"></script>
-    </body>
+<head>
+    <title>login page</title>
+    <link rel="stylesheet" href="{% static 'css/loginPagestyle.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <div class="container">
+            <a><img src="{% static 'images/logo.png'%}" width="170" height="140"></a>
+            <br>
+            <input class="input-name" type="text" id="username" name="username" placeholder="Enter username" required>
+            <label for="password"></label>
+            <input class="input-pass" type="password" id="password" name="password" placeholder="Enter password"
+                required>
+            <p class="error" id="name&pass"></p>
+            <label><input class="inputs" type="checkbox" checked="checked" name="remember"> Remember me</label>
+            <br>
+            <br>
+            <a id="link" href="#">Forgot your password? </a>
+            <br>
+            <br>
+            <!--<input type="submit" value="login" id="login">-->
+            <button type="submit" id="login">login</button>
+        </div>
+    </form>
+    <script src="{% static 'JS/login.js'%}"></script>
+</body>
 
 </html>
-
-     

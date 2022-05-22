@@ -1,43 +1,53 @@
 import json
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
-from django.core import serializers
-from django.forms.models import model_to_dict
+from django.contrib.auth import authenticate, login,logout
 from django.views.decorators.csrf import csrf_protect
-from .models import Student,Staff,impDate,New
+from .models import Student,impDate,New
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
-
-def home(request):
-    return render(request, 'HomePage.html')
-
 
 def NewHomePage(request):
     return render(request, 'NewHomePage.html')
 
+@login_required
+def home(request):
+    return render(request, 'HomePage.html')
 
+@login_required
 def add_student(request):
     return render(request, 'Add_Student.html')
 
-
+@login_required
 def edit_student(request, student_id):
     student = Student.objects.get(id=student_id)
     return render(request, 'Edit_student_data.html', {'student': student})
 
-
+@login_required
 def search(request):
     return render(request, 'Search.html')
 
-
+@login_required
 def view_all(request):
     return render(request, 'View-all.html')
+@login_required
+def delete_confirmation(request, student_id):
+    return render(request, 'DeleteConfirmation.html', {'id': student_id})
 
+@login_required
+def student_added(request):
+    return render(request, 'Student_Added.html')
 
-def login(request):
-    return render(request, 'loginPage.html')
+@login_required
+def student_edited(request):
+    return render(request, 'Student_Edited.html')
 
+@login_required
+def student_exists(request):
+    return render(request, 'Student_Exists.html')
 
+@login_required
 def assign(request, student_id):
     student = Student.objects.get(id=student_id)
     if (student.level == 1 or student.level == 2):
@@ -46,35 +56,29 @@ def assign(request, student_id):
         return render(request, 'assign.html', {'student': student})
 
 
-def delete_confirmation(request, student_id):
-    return render(request, 'DeleteConfirmation.html', {'id': student_id})
-
-
-def student_added(request):
-    return render(request, 'Student_Added.html')
-
-
-def student_edited(request):
-    return render(request, 'Student_Edited.html')
-
-
-def student_exists(request):
-    return render(request, 'Student_Exists.html')
-
-@csrf_protect
-def Authentication(request):
-    data = json.loads(request.body)
-    S_username=str(data['username'])
-    S_password=str(data['password'])
-    if(Staff.objects.filter(username=S_username).exists()):
-        user=Staff.objects.get(username=S_username)
-        if(user.password==S_password):
-            return HttpResponse("login successfully")
+def signin(request):
+    if request.user.is_authenticated:
+        return render(request, 'homepage.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/HomePage')
         else:
-            return HttpResponse("incorrect password")
+             return HttpResponse("username incorrect or not found")
     else:
-        return HttpResponse("username incorrect or not found")
+        return render(request, 'loginPage.html')
 
+@login_required
+@csrf_protect
+def signout(request):
+    logout(request)
+    return redirect('/loginPage')
+
+
+@login_required
 @csrf_protect
 def addStudent(request):
     if(request.method != "POST"):
@@ -99,7 +103,7 @@ def addStudent(request):
         else:
             return HttpResponse("Student already Exists")
 
-
+@login_required
 @csrf_protect
 def editStudent(request):
     if(request.method != "POST"):
@@ -123,7 +127,7 @@ def editStudent(request):
         else:
             return HttpResponse("Student doesn't Exists")
 
-
+@login_required
 @csrf_protect
 def searchStudent(request):
     if(request.method != "POST"):
@@ -139,7 +143,7 @@ def searchStudent(request):
                 students = {"Students": list(student.values())}
             return JsonResponse(students)
 
-
+@login_required
 @csrf_protect
 def deleteStudent(request):
     if(request.method != "POST"):
@@ -151,7 +155,7 @@ def deleteStudent(request):
         s.delete()
         return HttpResponse("Student deleted successfully")
 
-
+@login_required
 @csrf_protect
 def getAllStudents(request):
     if(request.method != "GET"):
@@ -160,6 +164,7 @@ def getAllStudents(request):
         students = list(Student.objects.values())
         return JsonResponse({"Students": students})
 
+@login_required
 @csrf_protect
 def getHomepage(request):
     if(request.method != "GET"):
@@ -169,7 +174,7 @@ def getHomepage(request):
         events = list(impDate.objects.values())
         return JsonResponse({"news": news,"events":events})
 
-
+@login_required
 @csrf_protect
 def assignStudent(request):
     if(request.method != "POST"):
