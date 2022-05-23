@@ -12,13 +12,16 @@
             <nav class="nav-bar">
                 <div class="nav-left">
                     <a href="/HomePage" class=" {% if navbar == 'home' %} active-menu-left {% else %} nav-menu {% endif %}">Home <img src="{% static 'images/home.png'%}" class="nav-menue-logo"/></a>
-                    <a href="/Add_Student" class="nav-menu">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></a>
-                    <a href="/Search" class="nav-menu">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></a>
+                    <a href="/Add_Student" class="{% if navbar == 'add-student' %} active-menu-left {% else %} nav-menu {% endif %}">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></a>
+                    <a href="/Search" class="{% if navbar == 'search' %} active-menu-left {% else %} nav-menu {% endif %}">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></a>
                 </div>
                 <div class="nav-right">
-                    
                     <a href="/View-all" class="{% if navbar == 'view-all' %} active-menu-right {% else %} nav-menu {% endif %}">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></a>
-                    <a href="/loginPage" class="nav-menu">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></a>
+                    {% if request.user.is_authenticated%} 
+                        <a href="/loginPage" class="nav-menu">Log out <img src="{% static 'images/logout.png'%}" class="nav-menue-logo"/></a>
+                    {% else %}
+                        <a href="/loginPage" class="nav-menu">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></a>
+                    {% endif %}
                 </div>
             </nav>
             <a href="/HomePage"><img src="{% static 'images/nav-logo.png'%}" class="logo"/></a>

@@ -1,49 +1,20 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="{% static 'css/erorr.css'%}"/>
-        <link rel="stylesheet" href="{% static 'css/NavBar.css'%}"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div class="nav">
-            <nav class="nav-bar">
-                <div class="nav-left">
-                    <a href="/HomePage" class="nav-menu">Home <img src="{% static 'images/home.png'%}" class="nav-menue-logo"/></a>
-                    <a href="/Add_Student" class="nav-menu">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></a>
-                    <a href="/Search" class="nav-menu">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></a>
-                </div>
-                <div class="nav-right">
-                    
-                    <a href="/View-all" class="nav-menu">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></a>
-                    <a href="/loginPage" class="nav-menu">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></a>
-                </div>
-            </nav>
-            <a href="/HomePage"><img src="{% static 'images/nav-logo.png'%}" class="logo"/></a>
-        </div>
-        <div class="hamburger-menu">
-            <nav class="hum-nav">
-                <img src="{% static 'images/humburger.png'%}" id="hum-btn"/>
-            </nav>
-            <a href="/HomePage"><img src="{% static 'images/logo.png'%}" id="hum-logo"/></a>
-            <ul id="menu-list">
-                <a href="/HomePage"><li class="menu-element">Home <img src="{% static 'images/home.png'%}" class="nav-menue-logo"/></li></a>
-                <a href="/Add_Student"><li class="menu-element">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></li></a>
-                <a href="/Search"><li class="menu-element">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></li></a>
-                <a href="/View-all"><li class="menu-element">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></li></a>
-                <a href="/loginPage"><li class="menu-element">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></li></a>
-            </ul>
-        </div>
 
-        <div id="container">
-            <div id="msg">
-                Are you sure you want to delete that Student ?<br/>
-            </div>
-            <button class="ok"  onclick="deleteStudent('{{id}}')">Yes</button>
-            <button class="NO"  onclick="history.back()">NO</button>
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/erorr.css'%}"/>
+{% endblock %}
+
+{% block content %}
+    <div id="container">
+        <div id="msg">
+            Are you sure you want to delete that Student ?<br/>
         </div>
-        <script src="{% static 'JS/nav.js'%}"></script>
-        <script src="{% static 'JS/deleteStudent.js'%}"></script>
-    </body>
-</html>
+        <button class="ok"  onclick="deleteStudent('{{id}}')">Yes</button>
+        <button class="NO"  onclick="history.back()">NO</button>
+    </div>
+{% endblock %}
+
+{% block js%}
+    <script src="{% static 'js/deleteStudent.js'%}"></script>
+{% endblock %}

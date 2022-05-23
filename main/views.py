@@ -78,7 +78,7 @@ def add_student(request):
         else:
             return redirect("/Student_Exists/")
     else:
-        return render(request, "Add_Student.html")
+        return render(request, "Add_Student.html", {'navbar': 'add-student'})
 
 
 @login_required
