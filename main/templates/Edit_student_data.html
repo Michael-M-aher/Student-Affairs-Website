@@ -187,6 +187,7 @@
 {% block js %}
 <script src="{% static 'js/validatedStudentInfo.js'%}"></script>
 <script src="{% static 'js/deleteStudent.js'%}"></script>
+<script src="{% static 'JS/refreshPhoto.js'%}"></script>
 <script>
   if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
     window.location.reload();
@@ -210,9 +211,5 @@
       return false;
     }
   }
-  var loadFile = function(event) {
-    var image = document.getElementById('Student-img');
-    image.src = URL.createObjectURL(event.target.files[0]);
-  };
 </script>
 {% endblock %}
