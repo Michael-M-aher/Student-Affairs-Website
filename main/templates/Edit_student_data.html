@@ -9,174 +9,178 @@
 {% endblock %}
 
 {% block content %}
-    <div id="edit-student">
-        <form onsubmit="return (validateId())" action="/Edit_student_data/{{student.id}}/" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div id="student-changes">
-                <div id="changes-con">
-                    {% if student.image %}
-                        <img id="Student-img" src="{{ student.image.url }}">
-                    {% else %}
-                        {% if student.gender == 'male' %}
-                            <img id="Student-img" src="{% static 'images/male_user.png'%}">
-                        {% else %}
-                        <img id="Student-img" src="{% static 'images/female_user.png'%}">
-                        {% endif %}
-                    {% endif %}
-                    <label for="files" class="btn"><i class="fas fa-pen" style='font-size:15px'></i></label>
-                    <input type="file" id="files" name="img" style="visibility:hidden;">
-        
-                    <div id="center">
-                        <!--use label to when a user clicks the text within the <label> element, it toggles the input (this increases the hit area)-->
-                        <div class="part">
-                            <label class="changes-title">Student Name</label>
-                            <input id="NAME" name="name" class="text-input" type="text" value="{{student.name}}">
-                            <p class="error" id="Pname"></p>
-                        </div>
-                        <div class="part">
-                            <label class="changes-title">Student ID</label>
-                            <input id="IDs" name="Sid" class="text-input" type="text" value="{{student.id}}">
-                            <p class="error" id="Pid"></p>
-                        </div>
-                        <div class="part">
-                            <label class="changes-title">GPA</label>
-                            <input id="GPA" name="gpa" class="text-input" type="text" value="{{student.gpa}}">
-                            <p class="error" id="Pgpa"></p>
-                        </div>
-                        <div class="part">
-                            <label class="changes-title">Email Address</label>
-                            <input id="EMAIL" name="email" class="text-input" type="text" value="{{student.email}}">
-                            <p class="error" id="Pemail"></p>
-                        </div>
-                        <div class="part">
-                            <label class="changes-title">Student Level</label>
-                            <select  id="LEVEL" name="level"  class="select-button">
-                                <!--option 0 is 2 to show Sara's level-->
-                                {% if student.level == 1 %}
-                                    <option value="1" selected>1</option>
-                                    <option value="2" >2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                {% elif student.level == 2 %}
-                                    <option value="1">1</option>
-                                    <option value="2" selected>2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                {% elif student.level == 3 %}
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3" selected>3</option>
-                                    <option value="4">4</option>
+    <div class="editContainer">
+        <div id="edit-student">
+            <form onsubmit="return (validateId())" action="/Edit_student_data/{{student.id}}/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="student-changes">
+                    <div id="changes-con">
+                        <div class="stimage-con">
+                            {% if student.image %}
+                                <img id="Student-img" src="{{ student.image.url }}">
+                            {% else %}
+                                {% if student.gender == 'male' %}
+                                    <img id="Student-img" src="{% static 'images/male_user.png'%}">
                                 {% else %}
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4" selected>4</option>
+                                <img id="Student-img" src="{% static 'images/female_user.png'%}">
                                 {% endif %}
-                            </select>
-                            <p class="error" id="Pdepart"></p>
+                            {% endif %}
+                            <label for="files" class="btn"><i class="fas fa-pen" style='font-size:15px'></i></label>
+                            <input type="file" id="files" name="img" style="visibility:hidden;">
                         </div>
-                        <div class="part">
-                            <label class="changes-title">Department</label>
-                            <i id="department">{{student.department}}</i>
-                            <!--use i element because not allowed to edit-->
+            
+                        <div id="center">
+                            <!--use label to when a user clicks the text within the <label> element, it toggles the input (this increases the hit area)-->
+                            <div class="part">
+                                <label class="changes-title">Student Name</label>
+                                <input id="NAME" name="name" class="text-input" type="text" value="{{student.name}}">
+                                <p class="error" id="Pname"></p>
+                            </div>
+                            <div class="part">
+                                <label class="changes-title">Student ID</label>
+                                <input id="IDs" name="Sid" class="text-input" type="text" value="{{student.id}}">
+                                <p class="error" id="Pid"></p>
+                            </div>
+                            <div class="part">
+                                <label class="changes-title">GPA</label>
+                                <input id="GPA" name="gpa" class="text-input" type="text" value="{{student.gpa}}">
+                                <p class="error" id="Pgpa"></p>
+                            </div>
+                            <div class="part">
+                                <label class="changes-title">Email Address</label>
+                                <input id="EMAIL" name="email" class="text-input" type="text" value="{{student.email}}">
+                                <p class="error" id="Pemail"></p>
+                            </div>
+                            <div class="part">
+                                <label class="changes-title">Student Level</label>
+                                <select  id="LEVEL" name="level"  class="select-button">
+                                    <!--option 0 is 2 to show Sara's level-->
+                                    {% if student.level == 1 %}
+                                        <option value="1" selected>1</option>
+                                        <option value="2" >2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    {% elif student.level == 2 %}
+                                        <option value="1">1</option>
+                                        <option value="2" selected>2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    {% elif student.level == 3 %}
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3" selected>3</option>
+                                        <option value="4">4</option>
+                                    {% else %}
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4" selected>4</option>
+                                    {% endif %}
+                                </select>
+                                <p class="error" id="Pdepart"></p>
+                            </div>
+                            <div class="part">
+                                <label class="changes-title">Department</label>
+                                <i id="department">{{student.department}}</i>
+                                <!--use i element because not allowed to edit-->
+                            </div>
+                            <div class="part">
+                                <label class="changes-title">Date of birth</label>
+                                <input  id="date-button" name="birth" type="date" value="">
+                                <p class="error" id="Pbirth"></p>
+                            </div>
+                            <div class="part">
+                                <label class="changes-title">Gender</label>
+                                <select id="GENDER" name="gender" class="select-button">
+                                    {% if student.gender == "male" %}
+                                        <option value="male" selected>Male</option>
+                                        <option value="female">Female</option>
+                                    {% else %}
+                                        <option value="male">Male</option>
+                                        <option value="female" selected>Female</option>
+                                    {% endif %}
+                                </select>
+                            </div>
+                            <div class="part">
+                                <label class="changes-title">Mobile Number</label>
+                                <input id="PHONE" name="phone" class="text-input" type="text" value="{{student.phone}}">
+                                <p class="error" id="Pphone"></p>
+                            </div>
+                            <div class="part">
+                                <label class="changes-title">Status</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="SWITCH" name="status"
+                                    {% if student.status == "active" %}
+                                         checked
+                                    {% endif %}
+                                    >
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="part">
-                            <label class="changes-title">Date of birth</label>
-                            <input  id="date-button" name="birth" type="date" value="">
-                            <p class="error" id="Pbirth"></p>
-                        </div>
-                        <div class="part">
-                            <label class="changes-title">Gender</label>
-                            <select id="GENDER" name="gender" class="select-button">
-                                {% if student.gender == "male" %}
-                                    <option value="male" selected>Male</option>
-                                    <option value="female">Female</option>
-                                {% else %}
-                                    <option value="male">Male</option>
-                                    <option value="female" selected>Female</option>
-                                {% endif %}
-                            </select>
-                        </div>
-                        <div class="part">
-                            <label class="changes-title">Mobile Number</label>
-                            <input id="PHONE" name="phone" class="text-input" type="text" value="{{student.phone}}">
-                            <p class="error" id="Pphone"></p>
-                        </div>
-                        <div class="part">
-                            <label class="changes-title">Status</label>
-                            <label class="switch">
-                                <input type="checkbox" id="SWITCH" name="status"
-                                {% if student.status == "active" %}
-                                     checked
-                                {% endif %}
-                                >
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
+                        <button onclick="validateForm('edit');" type="submit" class="submit" id="save">Save</button>
                     </div>
-                    <button onclick="validateForm('edit');" type="submit" class="submit" id="save">Save</button>
+                </div>
+            </form>
+        </div>
+        
+    
+            <div class="student-info">
+                <div id="info-con">
+                    <h2>Student Information</h2>
+                    <br><br>
+                    <ul>
+                        <!-- span is the block-level elements in HTML -->
+                        <li>
+                            <span class="data-title">Student Name: </span>
+                            <i>{{student.name}}</i>
+                        </li>
+                        <li>
+                            <span class="data-title">Student ID: </span>
+                            <i>{{student.id}}</i>
+                        </li>
+                        <li>
+                            <span class="data-title">GPA: </span>
+                            <i>{{student.gpa}}</i>
+                        </li>
+                        <li>
+                            <span class="data-title">Email Address: </span>
+                            <i>{{student.email}}</i>
+                        </li>
+                        <li>
+                            <span class="data-title">Student level: </span>
+                            <i>{{student.level}}</i>
+                        </li>
+                        <li>
+                            <span class="data-title">Department: </span>
+                            <i>{{student.department}}</i>
+                        </li>
+                        <li>
+                            <span class="data-title">Date of birth: </span>
+                            <i>{{student.birth}}</i>
+                        </li>
+                        <li>
+                            <span class="data-title">Gender: </span>
+                            <i>{{student.gender}}</i>
+                        </li>
+                        <li>
+                            <span class="data-title">Mobile Number: </span>
+                            <i>{{student.phone}}</i>
+                        </li>
+                        <li>
+                            <span class="data-title">Status: </span>
+                            <i>{{student.status}}</i>
+                        </li>
+                    </ul>
+                    
+                    <button type="button" id="delete" onclick="redirectDelete('{{student.id}}')">Delete</button>
                 </div>
             </div>
-        </form>
     </div>
-    
-
-        <div id="student-info">
-            <div id="info-con">
-                <h2>Student Information</h2>
-                <ul>
-                    <!-- span is the block-level elements in HTML -->
-                    <li>
-                        <span class="data-title">Student Name: </span>
-                        <i>{{student.name}}</i>
-                    </li>
-                    <li>
-                        <span class="data-title">Student ID: </span>
-                        <i>{{student.id}}</i>
-                    </li>
-                    <li>
-                        <span class="data-title">GPA: </span>
-                        <i>{{student.gpa}}</i>
-                    </li>
-                    <li>
-                        <span class="data-title">Email Address: </span>
-                        <i>{{student.email}}</i>
-                    </li>
-                    <li>
-                        <span class="data-title">Student level: </span>
-                        <i>{{student.level}}</i>
-                    </li>
-                    <li>
-                        <span class="data-title">Department: </span>
-                        <i>{{student.department}}</i>
-                    </li>
-                    <li>
-                        <span class="data-title">Date of birth: </span>
-                        <i>{{student.birth}}</i>
-                    </li>
-                    <li>
-                        <span class="data-title">Gender: </span>
-                        <i>{{student.gender}}</i>
-                    </li>
-                    <li>
-                        <span class="data-title">Mobile Number: </span>
-                        <i>{{student.phone}}</i>
-                    </li>
-                    <li>
-                        <span class="data-title">Status: </span>
-                        <i>{{student.status}}</i>
-                    </li>
-                </ul>
-                
-                <button type="button" id="delete" onclick="redirectDelete('{{student.id}}')">Delete</button>
-            </div>
-        </div>
 {% endblock %}
 
 {% block js %}
     <script src="{% static 'js/validatedStudentInfo.js'%}"></script>
-    <script src="{% static 'js/editStudent.js'%}"></script>
     <script src="{% static 'js/deleteStudent.js'%}"></script>
     <script>
         if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
