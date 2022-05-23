@@ -27,7 +27,7 @@
 
 .sub {
     color: white;
-    background-color: #04aa6d;
+    background-color: rgba(96, 112, 191, 1);
     height: 40px;
     width: 100px;
     border-radius: 20px;
@@ -42,7 +42,7 @@
 }
 
 .sub:hover {
-    background-color: #44b48b;
+    background-color: rgba(96, 112, 191, 0.8);
     color: white;
 }
 

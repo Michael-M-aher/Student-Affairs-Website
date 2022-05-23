@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-<form name="myForm" action="/Add_Student/" method="post" enctype="multipart/form-data">
+<form name="myForm" action="/Add_Student/" method="post" onchange="loadFile(event)" enctype="multipart/form-data">
   {% csrf_token %}
   <div id="new-student">
     <div class="photo">
@@ -112,5 +112,10 @@
 {% endblock %}
 {% block js %}
 <script src="{% static 'JS/validatedStudentInfo.js'%}"></script>
-<script src="{% static 'JS/nav.js'%}"></script>
+<script>
+  var loadFile = function(event) {
+    var image = document.getElementById('Student-img');
+    image.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
 {% endblock %}
