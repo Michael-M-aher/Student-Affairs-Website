@@ -1,7 +1,7 @@
-{% load static %} {% csrf_token %}
-<!DOCTYPE html>
-<html>
-  <head>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
     <title>Add new student</title>
     <link rel="stylesheet" href="{% static 'css/search&viewStudents.css'%}" />
     <link rel="stylesheet" href="{% static 'css/AddStudent.css'%}" />
@@ -11,45 +11,16 @@
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+{% endblock %}
 
-  <body>
-    <div class="nav">
-      <nav class="nav-bar">
-          <div class="nav-left">
-              <a href="/HomePage" class="nav-menu">Home <img src="{% static 'images/home.png'%}" class="nav-menue-logo"/></a>
-              <a href="/Add_Student" class="active-menu-left">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></a>
-              <a href="/Search" class="nav-menu">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></a>
-          </div>
-          <div class="nav-right">
-              
-              <a href="/View-all" class="nav-menu">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></a>
-              <a href="/loginPage" class="nav-menu">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></a>
-          </div>
-      </nav>
-      <a href="/HomePage"><img src="{% static 'images/nav-logo.png'%}" class="logo"/></a>
-    </div>
-    <div class="hamburger-menu">
-        <nav class="hum-nav">
-            <img src="{% static 'images/humburger.png'%}" id="hum-btn"/>
-        </nav>
-        <a href="/HomePage"><img src="{% static 'images/logo.png'%}" id="hum-logo"/></a>
-        <ul id="menu-list">
-            <a href="/HomePage"><li class="menu-element">Home <img src="{% static 'images/home.png'%}" class="nav-menue-logo"/></li></a>
-            <a href="/Add_Student"><li class="menu-element-active">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></li></a>
-            <a href="/Search"><li class="menu-element">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></li></a>
-            <a href="/View-all"><li class="menu-element">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></li></a>
-            <a href="/loginPage"><li class="menu-element">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></li></a>
-        </ul>
-    </div>
-
+{% block content %}
     <form name="myForm" action="/Add_Student/" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <div id="new-student">
         <div class="photo">
           <img
             id="Student-img"
-            src="{% static 'images/general_user.jpg'%}"
+            src="{% static 'images/general_user.png'%}"
             alt="Student picture "
           />
           <label for="files" class="btn"><i class="fas fa-pen" style='font-size:15px'></i></label>
@@ -180,8 +151,9 @@
         </div>
       </div>
     </form>
+{% endblock %}
+{% block js %}
     <script src="{% static 'JS/validatedStudentInfo.js'%}"></script>
     <script src="{% static 'JS/addStudent.js'%}"></script>
     <script src="{% static 'JS/nav.js'%}"></script>
-  </body>
-</html>
+{% endblock %}

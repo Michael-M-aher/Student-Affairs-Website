@@ -1,11 +1,12 @@
-const hum_btn = document.getElementById("hum-btn");
+const doc = document;
+const menuOpen = doc.querySelector(".menu");
+const menuClose = doc.querySelector(".close");
+const overlay = doc.querySelector(".overlay");
 
-hum_btn.addEventListener(("click"), ()=>{
-  if(document.getElementById("menu-list").style.display === "block"){
-    document.getElementById("menu-list").style.display = "none";
-    document.getElementById("hum-btn").src = "/main/static/images/humburger.png";
-  }else{
-    document.getElementById("menu-list").style.display = "block";
-    document.getElementById("hum-btn").src = "/main/static/images/downArrow.png";
-  }
-})
+menuOpen.addEventListener("click", () => {
+  overlay.classList.add("overlay--active");
+});
+
+menuClose.addEventListener("click", () => {
+  overlay.classList.remove("overlay--active");
+});

@@ -1,216 +1,151 @@
-body{
-    margin: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
 
-a{
-    text-decoration: none;
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px 5%;
+  margin-bottom: 50px;
+  background-color: #232946;
+  
 }
 
-.nav-right{
-    margin-top: -3.5%;
-    float:right;
-    width: 22%;
-    padding: 1%;
+.logo {
+  margin-right: auto;
+}
+.logo img{
+  width: 180px;
+  height: 120px;
 }
 
-.nav-left{
-    width:50%;
-    padding: 1%;
+.nav__links {
+  list-style: none;
+  display: flex;
 }
 
-.nav-menu{
-    margin:6%;
-    color: white;
+.nav__links a,
+.active,
+.overlay__content a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
 }
 
-.active-menu-right{
-    padding: 6%;
-    background-color: white;
-    color:black;
-    border-radius: 10% 10% 0% 0%;
+.nav__links li {
+  padding: 0px 20px;
 }
 
-.active-menu-left{
-    padding: 3%;
-    background-color: white;
-    color:black;
-    border-radius: 10% 10% 0% 0%;
+.nav__links li a {
+  transition: all 0.3s ease 0s;
 }
 
-.nav-menue-logo{
-    width: 25px;
+.nav__links li a:hover {
+  color: rgba(96, 112, 191, 0.8);
 }
 
-.nav-bar{
-    margin:0;
-    background-color: #698EA2;
+.active {
+  margin: 0px,20px;
+  padding: 9px 25px;
+  background-color: rgba(96, 112, 191, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+/* .logoutnav {
+  background-color: #cf99a1;
+  border: none;
+  border-radius: 50px;
+  margin-left: 20px;
+  padding: 9px 25px;
+} */
+
+.active:hover {
+  background-color: rgba(96, 112, 191, 0.8);
 }
 
-.logo{
-    margin:auto;
-    display: inline;
-    margin-left: 43%;
-    margin-top: -4%;
-    width:11%;
+/* Mobile Nav */
+
+.menu {
+  display: none;
 }
 
-.hamburger-menu{
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: #24252a;
+  overflow-x: hidden;
+  transition: all 0.5s ease 0s;
+}
+
+.overlay--active {
+  width: 100%;
+}
+
+.overlay__content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.active__overlay {
+  padding: 5px 0px;
+  background-color: rgba(96, 112, 191, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.overlay a,.overlay.logoutnav  {
+  margin-left: 0px;
+  padding: 15px;
+  font-size: 17px;
+  display: block;
+  transition: all 0.3s ease 0s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: rgba(96, 112, 191, 0.8);
+}
+.overlay .close {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: #edf0f1;
+  cursor: pointer;
+}
+
+
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .close {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .nav__links,
+  .active {
     display: none;
-}
-
-/* To make the navBar responsive with all screen sizes */
-@media screen and (max-width: 1670px) {
-    .nav-right{
-        margin-top: -3.6%;
-        float:right;
-        width: 22%;
-        padding: 1%;
-    }
-}
-@media screen and (max-width: 1570px) {
-    .nav-right{
-        margin-top: -3.7%;
-        float:right;
-        width: 22%;
-        padding: 1%;
-    }
-}
-@media screen and (max-width: 1500px) {
-    .nav-right{
-        margin-top: -3.7%;
-        float:right;
-        width: 22%;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 1488px) {
-    .nav-right{
-        margin-top: -3.8%;
-        float:right;
-        width: 22%;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 1439px) {
-    .nav-right{
-        margin-top: -3.9%;
-        float:right;
-        width: 23%;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 1395px) {
-    .nav-right{
-        margin-top: -4%;
-        float:right;
-        width: 24%;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 1354px) {
-    .nav-right{
-        margin-top: -4.2%;
-        float:right;
-        width: 25%;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 1316px) {
-    .nav-right{
-        margin-top: -4.2%;
-        float:right;
-        width: 26%;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 1279px) {
-    .nav-right{
-        margin-top: -4.2%;
-        float:right;
-        width: 27%;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 1245px) {
-    .nav-right{
-        float:right;
-        width: 28%;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 1212px) {
-    .nav-right{
-        float:right;
-        width: 29%;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 1180px) {
-    .nav-right{
-        float:right;
-        width: 30%;
-        padding: 1%;
-    }
-}
-
-@media screen and (max-width: 1151px) {
-    .nav-right{
-        float:right;
-        width: 31%;
-        padding: 1%;
-    }
-}
-
-/* Hamburger navbar */
-/* Implemented using javaScript in the next phase */
-@media screen and (max-width: 1123px) {
-    .nav{
-        display: none;
-    }
-    .hamburger-menu{
-        display: block;
-    }
-    .hum-nav{
-        background-color: #698EA2;
-    }
-    #hum-btn{
-        margin-left: 95%;
-        width: 3%;
-        padding: 1%;
-    }
-    #hum-logo{
-        width: 10%;
-        margin-top: -7%;
-        margin-left: -2%;
-        padding: 1%;
-        display:inline;
-    }
-    #menu-list{
-        list-style-type: none;
-        text-align: center;
-        display: none;
-        margin-top: -2%;
-    }
-    .menu-element{
-        border-bottom: 1px groove #D9D5D5;
-        background-color: #D9E4EA;
-        padding: 1%;
-    }
-    .menu-element-active{
-        border-bottom: 1px groove #D9D5D5;
-        background-color: #DBDBDB;
-        padding: 1%;
-    }
-    a{
-        color: black;
-    }
+  }
+  .menu {
+    display: initial;
+  }
 }

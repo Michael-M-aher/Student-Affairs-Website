@@ -3,6 +3,17 @@
   margin-top: 2%;
   margin-bottom: 6%;
 }
+#new-student input,#new-student select{
+  background: #faf4f4;;
+}
+#new-student input::placeholder,#new-student select::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 0.9; /* Firefox */
+}
+label{
+  color: #484141;
+}
+ 
 
 .text-input, .select-button, .date-button {
   font-size: 15px;

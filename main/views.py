@@ -36,7 +36,6 @@ def signout(request):
     return redirect("/loginPage")
 
 
-@login_required
 def home(request):
     return render(request, "HomePage.html", {'navbar': 'home'})
 
@@ -148,7 +147,7 @@ def searchStudent(request):
         data = json.loads(request.body)
         search_text = data["search_text"]
         if search_text is not None:
-            student = Student.objects.filter(name__startswith=search_text)
+            student = Student.objects.filter(name__startswith=search_text, status = 'active')
             if search_text == "":
                 students = {"Students": ""}
             else:
@@ -166,7 +165,6 @@ def getAllStudents(request):
         return JsonResponse({"Students": students})
 
 
-@login_required
 @csrf_protect
 def getHomepage(request):
     if request.method != "GET":

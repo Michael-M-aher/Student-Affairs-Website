@@ -1,3 +1,14 @@
+#edit-student input,#edit-student select,#department{
+    background: #faf4f4;
+}
+#edit-student input::placeholder,#edit-student select::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 0.8; /* Firefox */
+}
+label{
+    color: #484141;
+}
+
 #Student-img {
     border-radius: 50%;
     width: 130px;

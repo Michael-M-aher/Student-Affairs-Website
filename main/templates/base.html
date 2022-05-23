@@ -1,49 +1,50 @@
-{% load static %} {% csrf_token %}
+{% load static %}
 <!DOCTYPE html>
-<html>
     <head>
-        <link rel="stylesheet" href="{% static 'css/NavBar.css'%}"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/NavBar.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
         {% block head %}
         {% endblock %}
     </head>
-    <body>
-        <div class="nav">
-            <nav class="nav-bar">
-                <div class="nav-left">
-                    <a href="/HomePage" class=" {% if navbar == 'home' %} active-menu-left {% else %} nav-menu {% endif %}">Home <img src="{% static 'images/home.png'%}" class="nav-menue-logo"/></a>
-                    <a href="/Add_Student" class="{% if navbar == 'add-student' %} active-menu-left {% else %} nav-menu {% endif %}">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></a>
-                    <a href="/Search" class="{% if navbar == 'search' %} active-menu-left {% else %} nav-menu {% endif %}">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></a>
-                </div>
-                <div class="nav-right">
-                    <a href="/View-all" class="{% if navbar == 'view-all' %} active-menu-right {% else %} nav-menu {% endif %}">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></a>
+    <body bgcolor="#e9eaf2">
+        <header>
+            <a class="logo" href="/HomePage"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+            <nav>
+                <ul class="nav__links">
+                    <li><a  {% if navbar == 'home' %} class="active" {% endif %} href="/HomePage">Home</a></li>
+                    <li><a {% if navbar == 'add-student' %} class="active" {% endif %} href="/Add_Student">Add Student</a></li>
+                    <li><a {% if navbar == 'search' %} class="active" {% endif %} href="/Search">Search</a></li>
+                    <li><a {% if navbar == 'view-all' %} class="active" {% endif %} href="/View-all">View All</a></li>
                     {% if request.user.is_authenticated%} 
-                        <a href="/loginPage" class="nav-menu">Log out <img src="{% static 'images/logout.png'%}" class="nav-menue-logo"/></a>
+                        <li><a class="logoutnav" href="/signout" >Log out</a></li>
                     {% else %}
-                        <a href="/loginPage" class="nav-menu">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></a>
+                        <li><a class="logoutnav" href="/loginPage">Log in</a></li>
                     {% endif %}
-                </div>
+                </ul>
             </nav>
-            <a href="/HomePage"><img src="{% static 'images/nav-logo.png'%}" class="logo"/></a>
+            <p class="menu active">Menu</p>
+        </header>
+        <div id="mobile__menu" class="overlay">
+            <a class="close">&times;</a>
+            <div class="overlay__content">
+                <a  {% if navbar == 'home' %} class="active__overlay" {% endif %} href="/HomePage">Home</a>
+                <a {% if navbar == 'add-student' %} class="active__overlay" {% endif %} href="/Add_Student">Add Student</a>
+                <a {% if navbar == 'search' %} class="active__overlay" {% endif %} href="/Search">Search</a>
+                <a {% if navbar == 'view-all' %} class="active__overlay" {% endif %} href="/View-all">View All</a>
+                {% if request.user.is_authenticated%} 
+                    <a class="logoutnav" href="/signout" >Log out</a>
+                {% else %}
+                    <a class="logoutnav" href="/loginPage">Log in</a>
+                {% endif %}
+            </div>
         </div>
-        <div class="hamburger-menu">
-            <nav class="hum-nav">
-                <img src="{% static 'images/humburger.png'%}" id="hum-btn"/>
-            </nav>
-            <a href="/HomePage"><img src="{% static 'images/logo.png'%}" id="hum-logo"/></a>
-            <ul id="menu-list">
-                <a href="/HomePage"><li class="{% if navbar == 'home' %} menu-element-active {% else %} menu-element {% endif %}">Home <img src="{% static 'images/home.png'%}" class="nav-menue-logo"/></li></a>
-                <a href="/Add_Student"><li class="menu-element">Add Student <img src="{% static 'images/add.png'%}" class="nav-menue-logo"/></li></a>
-                <a href="/Search"><li class="menu-element">Search <img src="{% static 'images/search.png'%}" class="nav-menue-logo"/></li></a>
-                <a href="/View-all"><li class="menu-element">View All Students <img src="{% static 'images/all.png'%}" class="nav-menue-logo"/></li></a>
-                <a href="/loginPage"><li class="menu-element">Log in <img src="{% static 'images/login.png'%}" class="nav-menue-logo"/></li></a>
-            </ul>
-        </div>
+        
         {% block content %}
         {% endblock %}
 
         {% block js %}
         {% endblock %}
-        <script src="{% static 'JS/nav.js'%}"></script>
+        <script type="text/javascript" src="{% static 'JS/nav.js'%}"></script>
     </body>
 </html>
