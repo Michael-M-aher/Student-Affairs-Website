@@ -15,7 +15,7 @@ def NewHomePage(request):
 @csrf_protect
 def signin(request):
     if request.user.is_authenticated:
-        return render(request, "homepage.html")
+        return render(request, "homepage.html", {'navbar': 'home'})
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
@@ -38,18 +38,18 @@ def signout(request):
 
 @login_required
 def home(request):
-    return render(request, "HomePage.html")
+    return render(request, "HomePage.html", {'navbar': 'home'})
 
 
 @login_required
 def search(request):
-    return render(request, "Search.html")
+    return render(request, "Search.html", {'navbar': 'search'})
 
 
 @login_required
 def view_all(request):
     students = Student.objects.all()
-    return render(request, "View-all.html", {"Students": students})
+    return render(request, "View-all.html", {"Students": students, 'navbar': 'view-all'})
 
 
 @login_required
