@@ -10,13 +10,13 @@ header {
   padding: 5px 5%;
   margin-bottom: 50px;
   background-color: #232946;
-  
 }
 
 .logo {
   margin-right: auto;
 }
-.logo img{
+
+.logo img {
   width: 180px;
   height: 120px;
 }
@@ -48,7 +48,7 @@ header {
 }
 
 .active {
-  margin: 0px,20px;
+  margin: 0px, 20px;
   padding: 9px 25px;
   background-color: rgba(96, 112, 191, 1);
   border: none;
@@ -56,6 +56,7 @@ header {
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
+
 /* .logoutnav {
   background-color: #cf99a1;
   border: none;
@@ -107,7 +108,8 @@ header {
   transition: all 0.3s ease 0s;
 }
 
-.overlay a,.overlay.logoutnav  {
+.overlay a,
+.overlay.logoutnav {
   margin-left: 0px;
   padding: 15px;
   font-size: 17px;
@@ -119,6 +121,7 @@ header {
 .overlay a:focus {
   color: rgba(96, 112, 191, 0.8);
 }
+
 .overlay .close {
   position: absolute;
   top: 20px;
@@ -128,11 +131,27 @@ header {
   cursor: pointer;
 }
 
+h1 {
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+}
+
+h2 {
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+}
+
+h2 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 
 @media screen and (max-height: 450px) {
   .overlay a {
     font-size: 20px;
   }
+
   .overlay .close {
     font-size: 40px;
     top: 15px;
@@ -141,10 +160,12 @@ header {
 }
 
 @media only screen and (max-width: 800px) {
+
   .nav__links,
   .active {
     display: none;
   }
+
   .menu {
     display: initial;
   }

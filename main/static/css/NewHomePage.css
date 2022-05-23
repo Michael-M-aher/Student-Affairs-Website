@@ -1,4 +1,4 @@
-body{
+body {
     background: url('../images/back-new.png');
     background-repeat: no-repeat;
     height: 70%;
@@ -7,23 +7,23 @@ body{
     background-size: cover;
 }
 
-a{
+a {
     text-decoration: none;
     color: #F97D81;
 }
 
-.container{
+.container {
     float: right;
     margin-top: 5%;
     width: 50%;
 }
 
-.icon{
+.icon {
     width: 10%;
     margin-right: 3%;
 }
 
-h1{
+h1 {
     margin-left: 10%;
     margin-top: 5%;
     margin-bottom: 5%;

@@ -2,157 +2,115 @@
 {% load static %}
 
 {% block head %}
-    <title>Add new student</title>
-    <link rel="stylesheet" href="{% static 'css/search&viewStudents.css'%}" />
-    <link rel="stylesheet" href="{% static 'css/AddStudent.css'%}" />
-    <link rel="stylesheet" href="{% static 'css/NavBar.css'%}" />
-    <link
-      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-      rel="stylesheet"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Add new student</title>
+<link rel="stylesheet" href="{% static 'css/search&viewStudents.css'%}" />
+<link rel="stylesheet" href="{% static 'css/AddStudent.css'%}" />
+<link rel="stylesheet" href="{% static 'css/NavBar.css'%}" />
+<link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 {% endblock %}
 
 {% block content %}
-    <form name="myForm" action="/Add_Student/" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <div id="new-student">
-        <div class="photo">
-          <img
-            id="Student-img"
-            src="{% static 'images/general_user.png'%}"
-            alt="Student picture "
-          />
-          <label for="files" class="btn"><i class="fas fa-pen" style='font-size:15px'></i></label>
-          <input type="file" id="files" name="img" style="visibility:hidden;">
-          
-        </div>
-        <div class="name">
-          <label class="student-title">Student Name:</label><br />
-          <input
-            id="NAME"
-            name="name"
-            class="text-input"
-            type="text"
-            placeholder="Enter Student Name"
-            required
-          />
-          <p class="error" id="Pname"></p>
-        </div>
-        <br />
-        <div class="id">
-          <label class="student-title">Student ID:</label><br />
-          <input
-            id="IDs"
-            name="Sid"
-            class="text-input"
-            type="text"
-            placeholder="20######"
-            required
-          />
-          <p class="error" id="Pid"></p>
-        </div>
-        <br />
-        <div class="gpa">
-          <label class="student-title">GPA:</label><br />
-          <input
-            id="GPA"
-            name="gpa"
-            class="text-input"
-            type="text"
-            placeholder="Enter GPA value"
-            required
-          />
-          <p class="error" id="Pgpa"></p>
-        </div>
-        <br />
-        <div class="email">
-          <label class="student-title">Email Address:</label><br />
-          <input
-            id="EMAIL"
-            name="email"
-            class="text-input"
-            type="text"
-            placeholder="Enter Student Email Address"
-            required
-          />
-          <p class="error" id="Pemail"></p>
-        </div>
-        <br />
-        <div class="level">
-          <label class="student-title">Student Level:</label><br />
-          <select id="LEVEL" class="select-button" name="level" required>
-            <option value="" disabled selected hidden>Choose a level</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div>
-        <br />
-        <div class="department">
-          <label class="student-title">Department:</label><br />
-          <select id="DEPARTMENT" name="department" class="select-button" required>
-            <option value="" disabled selected hidden>
-              Choose a Department
-            </option>
-            <option value="general">General</option>
-            <option value="cs">CS</option>
-            <option value="is">IS</option>
-            <option value="it">IT</option>
-            <option value="ds">DS</option>
-            <option value="ai">AI</option>
-          </select>
-          <p class="error" id="Pdepart"></p>
-        </div>
-        <br />
-        <div class="birthdate">
-          <label class="student-title">Date of birth:</label><br />
-          <input id="date-button" name="birth" class="date-button" type="date" required />
-          <!--value  is 2002-07-16 to show Sara's birthday-->
-          <p class="error" id="Pbirth"></p>
-        </div>
-        <br />
-        <div class="gender">
-          <label class="student-title">Gender:</label><br />
-          <select id="GENDER" name="gender" class="select-button" required>
-            <option value="" disabled selected hidden>Choose a gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-        </div>
-        <br />
-        <div class="phone">
-          <label class="student-title">Mobile Number:</label><br />
-          <input
-            id="PHONE"
-            name="phone"
-            class="text-input"
-            type="text"
-            placeholder="01#########"
-            required
-          />
-          <p class="error" id="Pphone"></p>
-        </div>
-        <br />
-        <div class="status">
-          <label class="student-title">Status:</label>
-          <label class="switch">
-            <input type="checkbox" id="SWITCH" name="status" />
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <br />
-        <div class="btns">
-          <button type="button"  onclick="window.location.href='/HomePage';"" class="cancel">Cancel</button>
-          <button onclick="validateForm('add');" type="submit" class="submit">
-            Add
-          </button>
-        </div>
-      </div>
-    </form>
+<form name="myForm" action="/Add_Student/" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div id="new-student">
+    <div class="photo">
+      <img id="Student-img" src="{% static 'images/general_user.png'%}" alt="Student picture " />
+      <label for="files" class="btn"><i class="fas fa-pen" style='font-size:15px'></i></label>
+      <input type="file" id="files" name="img" style="visibility:hidden;">
+
+    </div>
+    <div class="name">
+      <label class="student-title">Student Name:</label><br />
+      <input id="NAME" name="name" class="text-input" type="text" placeholder="Enter Student Name" required />
+      <p class="error" id="Pname"></p>
+    </div>
+    <br />
+    <div class="id">
+      <label class="student-title">Student ID:</label><br />
+      <input id="IDs" name="Sid" class="text-input" type="text" placeholder="20######" required />
+      <p class="error" id="Pid"></p>
+    </div>
+    <br />
+    <div class="gpa">
+      <label class="student-title">GPA:</label><br />
+      <input id="GPA" name="gpa" class="text-input" type="text" placeholder="Enter GPA value" required />
+      <p class="error" id="Pgpa"></p>
+    </div>
+    <br />
+    <div class="email">
+      <label class="student-title">Email Address:</label><br />
+      <input id="EMAIL" name="email" class="text-input" type="text" placeholder="Enter Student Email Address"
+        required />
+      <p class="error" id="Pemail"></p>
+    </div>
+    <br />
+    <div class="level">
+      <label class="student-title">Student Level:</label><br />
+      <select id="LEVEL" class="select-button" name="level" required>
+        <option value="" disabled selected hidden>Choose a level</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+    <br />
+    <div class="department">
+      <label class="student-title">Department:</label><br />
+      <select id="DEPARTMENT" name="department" class="select-button" required>
+        <option value="" disabled selected hidden>
+          Choose a Department
+        </option>
+        <option value="general">General</option>
+        <option value="cs">CS</option>
+        <option value="is">IS</option>
+        <option value="it">IT</option>
+        <option value="ds">DS</option>
+        <option value="ai">AI</option>
+      </select>
+      <p class="error" id="Pdepart"></p>
+    </div>
+    <br />
+    <div class="birthdate">
+      <label class="student-title">Date of birth:</label><br />
+      <input id="date-button" name="birth" class="date-button" type="date" required />
+      <p class="error" id="Pbirth"></p>
+    </div>
+    <br />
+    <div class="gender">
+      <label class="student-title">Gender:</label><br />
+      <select id="GENDER" name="gender" class="select-button" required>
+        <option value="" disabled selected hidden>Choose a gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+    <br />
+    <div class="phone">
+      <label class="student-title">Mobile Number:</label><br />
+      <input id="PHONE" name="phone" class="text-input" type="text" placeholder="01#########" required />
+      <p class="error" id="Pphone"></p>
+    </div>
+    <br />
+    <div class="status">
+      <label class="student-title">Status:</label>
+      <label class="switch">
+        <input type="checkbox" id="SWITCH" name="status" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <br />
+    <div class="btns">
+      <button type="button" onclick="window.location.href='/HomePage';"" class=" cancel">Cancel</button>
+      <button onclick="validateForm('add');" type="submit" class="submit">
+        Add
+      </button>
+    </div>
+  </div>
+</form>
 {% endblock %}
 {% block js %}
-    <script src="{% static 'JS/validatedStudentInfo.js'%}"></script>
-    <script src="{% static 'JS/nav.js'%}"></script>
+<script src="{% static 'JS/validatedStudentInfo.js'%}"></script>
+<script src="{% static 'JS/nav.js'%}"></script>
 {% endblock %}

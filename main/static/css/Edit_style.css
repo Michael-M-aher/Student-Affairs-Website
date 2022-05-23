@@ -1,19 +1,16 @@
-.editContainer{
+.editContainer {
     display: flex;
     justify-content: space-between;
     align-content: center;
     flex-direction: row;
 }
 
-.student-changes {
-    margin-left: 50%;
-    padding-top: 30%;
-    margin-bottom: 20%;
+.edit-student {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 60%;
-    height: 100%;
+    justify-items: center;
+    margin-top: 5%;
+    margin-left: 10%;
 }
 
 .student-info {
@@ -29,10 +26,18 @@
 
 }
 
-.stimage-con{
+.stimage-con {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    margin: 10% 0%;
+    margin-right: 40%;
+}
+
+.stat-con {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 #Student-img {
@@ -43,63 +48,35 @@
 }
 
 
-#edit-student input,#edit-student select,#department{
+.edit-student input,
+.edit-student select,
+#department {
     background: #faf4f4;
 }
-#edit-student input::placeholder,#edit-student select::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+.edit-student input::placeholder,
+.edit-student select::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: black;
-    opacity: 0.8; /* Firefox */
+    opacity: 0.8;
+    /* Firefox */
 }
 
 
-.part {
-    width: 30%;
-    padding-bottom: 3%;
-}
 
 label {
     display: inline;
     color: #484141;
 }
 
-#center {
-    margin: auto;
-    width: 60%;
-    padding: 10px;
-    padding-bottom: 2%;
-}
-
-.changes-title {
-    display: inline;
-    font: 50px;
-    margin: 5%;
-    font-size: 120%;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-
-}
-
-.text-input, #date-button {
-    font-size: 15px;
-    border: 1px solid;
-    border-radius: 25px;
-    width: 200px;
-    font-family: Arial, Helvetica, sans-serif;
-
-}
 
 #save {
-    background-color: #04aa6d;
-    color: white;
-    border-radius: 20px;
-    font-size: 18px;
     vertical-align: middle;
-    padding: 6px 18px;
     margin-left: 25%;
 }
 
 #save:hover {
-    background-color: #44b48b;
+    background-color: rgba(96, 112, 191, 0.8);
     color: white;
 }
 
@@ -116,12 +93,6 @@ label {
     font-family: Arial, Helvetica, sans-serif;
 
 }
-
-.select-button {
-    border: 1px solid;
-    border-radius: 25px;
-}
-
 
 
 #info-con {
@@ -190,18 +161,21 @@ input:checked+.slider:before {
 #changes-con {
     margin-top: -10%;
 }
-.error{
+
+.error {
     color: #cc0033;
     font-size: 18px;
     line-height: 15px;
     margin: 5px 0 0;
 }
-.btn{
- cursor: pointer;
+
+.btn {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 1370px) {
-    .student-changes {
-        margin-left: 35%;
+    .edit-student {
+        margin-top: 3%;
+        margin-left: 0%;
     }
 }

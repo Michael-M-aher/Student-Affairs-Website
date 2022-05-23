@@ -1,69 +1,78 @@
-Body{
-    background-color:white;
-    background-image:url(../images/univ-cover.jpg);
+Body {
+    background-color: white;
+    background-image: url(../images/univ-cover.jpg);
     background-attachment: fixed;
     background-size: cover;
-    backdrop-filter: blur(3px);  
-    margin:0%; 
+    backdrop-filter: blur(3px);
+    margin: 0%;
 }
-form{ 
-    margin:auto;
+
+form {
+    margin: auto;
     text-align: center;
-    width:360px;
-    height:360px;
-    border-radius: 50%;  
-} 
-.input-name, .input-pass { 
-    width: 85%; 
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+}
+
+.input-name,
+.input-pass {
+    width: 85%;
     margin: 8px 0;
     padding: 12px 20px;
-    box-sizing: border-box;    
+    box-sizing: border-box;
     border-radius: 15px;
 }
-.container {               
-    margin-top: 15%;  
+
+.container {
+    margin-top: 15%;
     margin-right: 50%;
     width: 115%;
     height: 115%;
     padding: 25px;
     background: rgb(156, 186, 241, 0.4);
     border-radius: 15px;
-} 
-#link
-{color:black;}
+}
 
-.input-name{
+#link {
+    color: black;
+}
+
+.input-name {
     background-image: url('../images/username.png');
     background-repeat: no-repeat;
     background-position: center left;
     padding-left: 10%;
 }
 
-.input-pass{
+.input-pass {
     background-image: url('../images/pass.png');
     background-size: 7%;
     background-repeat: no-repeat;
     background-position: center left;
     padding-left: 10%;
 }
-#login{
-    margin:auto;
+
+#login {
+    margin: auto;
     background-color: #204c8f;
     color: white;
     border-radius: 20px;
     font-size: 18px;
     padding: 6px 18px;
 }
-#login:active{
+
+#login:active {
     transform: scale(0.98);
-            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
+
 #login:hover {
     background-color: #3367b5;
     color: white;
-} 
+}
 
-img{
-    width:70%;
+img {
+    width: 70%;
     height: 44%;
 }

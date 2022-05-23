@@ -1,19 +1,21 @@
-.search  {
+.search {
     width: 340px;
     height: 40px;
     color: #707070;
     display: flex;
-    border: 1px solid ;
+    border: 1px solid;
     border-radius: 25px;
     margin-left: 110px;
 }
-.search i{
+
+.search i {
     font-size: 18px;
 }
+
 .search input {
     padding-left: 25px;
     height: 40px;
-    width: 255px;
+    width: 280px;
     margin-right: 4px;
     background: transparent;
     font-size: large;
@@ -24,63 +26,76 @@
 .search input:focus {
     outline: none;
 }
-.search button{
+
+.search button {
     width: 40px;
     border: solid transparent;
     background: transparent;
-    opacity: 0.8; 
+    opacity: 0.8;
 }
+
 table {
     border-collapse: collapse;
 }
-.tbl{
+
+.tbl {
     display: flex;
     justify-content: center;
     margin-top: 80px;
     margin-right: 60px;
 }
-.tbl button{
+
+.tbl button {
     cursor: pointer;
     width: 40px;
     border: solid transparent;
     background: transparent;
-    opacity: 0.8; 
+    opacity: 0.8;
 }
-.tbl img{
+
+.tbl img {
     width: 90px;
     height: 90px;
 }
-#depimg{
+
+#depimg {
     height: 40px;
     width: 35px;
 }
-tr.head{
+
+tr.head {
     justify-content: center;
 }
+
 tr.rw {
     padding: 20 0px;
     border-bottom: 1px solid rgba(112, 112, 112, 0.35);
 }
-th, td{
+
+th,
+td {
     color: #000;
     font-size: 25px;
     font-style: italic;
     font-weight: 400;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 td {
     font-weight: 550;
     padding: 50px 130px;
 }
-td i{
-    font-size:26px
+
+td i {
+    font-size: 26px
 }
 
-td.btn{
+td.btn {
     padding: 50px 70px;
-    
+
 }
-td.img{
+
+td.img {
     padding: 0 0px;
 }
 
@@ -89,12 +104,14 @@ td.img{
     display: inline-block;
     width: 45px;
     height: 28px;
-  }
+}
+
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -106,173 +123,203 @@ td.img{
     -webkit-transition: .4s;
     transition: .4s;
 }
+
 .slider:before {
-position: absolute;
-content: "";
-height: 20px;
-width: 20px;
-left: 4px;
-bottom: 4px;
-background-color: white;
--webkit-transition: .4s;
-transition: .4s;
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
-input:checked + .slider {
-background-color: #74d695;
+
+input:checked+.slider {
+    background-color: #74d695;
 }
-input:focus + .slider {
-box-shadow: 0 0 1px #74d695;
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #74d695;
 }
-input:checked + .slider:before {
--webkit-transform: translateX(16px);
--ms-transform: translateX(16px);
-transform: translateX(16px);
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
 }
+
 .slider.round {
-border-radius: 34px;
+    border-radius: 34px;
 }
+
 .slider.round:before {
-border-radius: 50%;
+    border-radius: 50%;
 }
-#tableHead{
+
+#tableHead {
     display: none;
 }
 
 
 @media only screen and (max-width: 1370px) {
+
     /* For desktop: */
-    .tbl{
-        
+    .tbl {
+
         margin-right: 5px;
     }
-    
-    .tbl img{
+
+    .tbl img {
         width: 50px;
         height: 50px;
     }
 
-    #depimg{
+    #depimg {
         height: 25px;
         width: 20px;
     }
-    th, td{
+
+    th,
+    td {
         font-size: 15px;
     }
+
     td {
         padding: 30px 60px;
     }
-    td i{
+
+    td i {
         font-size: 15px
     }
 
-    td.btn{
+    td.btn {
         padding: 50px 35px;
     }
-    .search  {
+
+    .search {
         width: 220px;
         height: 28px;
         margin-left: 60px;
     }
-    .search i{
+
+    .search i {
         font-size: 13px;
     }
+
     .search input {
         padding-left: 10px;
         height: 28px;
-        width: 165px;
+        width: 180px;
         margin-right: 4px;
         font-size: 14px;
     }
-    
-    .search button{
+
+    .search button {
         width: 3px;
     }
+
     .switch {
         width: 28px;
         height: 16px;
     }
+
     .slider:before {
         height: 12px;
         width: 12px;
         left: 2px;
         bottom: 2px;
     }
-    input:checked + .slider:before {
+
+    input:checked+.slider:before {
         -webkit-transform: translateX(11px);
         -ms-transform: translateX(11px);
         transform: translateX(11px);
     }
-    
+
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1500px){
+@media only screen and (min-width: 1200px) and (max-width: 1500px) {
     td {
         padding: 30px 80px;
     }
-    td i{
+
+    td i {
         font-size: 17px
     }
-    
-    td.btn{
+
+    td.btn {
         padding: 50px 50px;
     }
-    .tbl img{
+
+    .tbl img {
         width: 60px;
         height: 60px;
     }
-    #depimg{
+
+    #depimg {
         height: 30px;
         width: 25px;
     }
-    .search  {
+
+    .search {
         width: 290px;
         height: 35px;
         margin-left: 60px;
     }
-    .search i{
+
+    .search i {
         font-size: 15px;
     }
+
     .search input {
         padding-left: 15px;
         height: 35px;
-        width: 220px;
+        width: 235px;
         margin-right: 4px;
         font-size: 16px;
     }
-    .search button{
+
+    .search button {
         width: 40px;
     }
+
     .switch {
         width: 33px;
         height: 20px;
     }
+
     .slider:before {
         height: 14px;
         width: 14px;
         left: 3px;
         bottom: 3px;
     }
-    input:checked + .slider:before {
+
+    input:checked+.slider:before {
         -webkit-transform: translateX(13px);
         -ms-transform: translateX(13px);
         transform: translateX(13px);
     }
 }
-@media only screen and (min-width: 1380px) and (max-width: 1750px){
-    .tbl{
+
+@media only screen and (min-width: 1380px) and (max-width: 1750px) {
+    .tbl {
         margin-right: 30px;
     }
+
     td {
         padding: 50px 90px;
     }
-    
-    td.btn{
+
+    td.btn {
         padding: 50px 60px;
     }
 }
-@media only screen and (min-width: 1750px) and (max-width: 1850px){
+
+@media only screen and (min-width: 1750px) and (max-width: 1850px) {
     td {
         padding: 50px 110px;
     }
 }
-

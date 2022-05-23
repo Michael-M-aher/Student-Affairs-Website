@@ -1,23 +1,27 @@
-
-.functionalareas{
+.functionalareas {
     width: 95%;
     padding: 1%;
     margin: 20px;
-    background:#5C6073 ;
+    background: #5C6073;
     border-radius: 15px;
-    color: rgba(255,255,255, 0.85);
+    color: rgba(255, 255, 255, 0.85);
 }
-.infoClass{
+
+.infoClass {
     width: 95%;
     padding: 1%;
     margin: 20px;
-    color: rgba(255,255,255, 0.85);
+    color: rgba(255, 255, 255, 0.85);
     background-color: #1d2137;
 }
+
 footer {
     padding: 10px;
 }
- h1, h2,h3{
-    color:#484141; 
-    margin-left:2%;
+
+h1,
+h2,
+h3 {
+    color: #484141;
+    margin-left: 2%;
 }
