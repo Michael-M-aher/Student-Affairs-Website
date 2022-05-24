@@ -1,20 +1,33 @@
 body {
-    background: url('../images/back-new.png');
-    background-repeat: no-repeat;
-    height: 70%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: linear-gradient(-45deg, #984931, #a22e5b, #218cb3, #20af8e);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
 }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 
 a {
     text-decoration: none;
-    color: #F97D81;
+    color: #ebe7e7;
 }
 
+
 .container {
-    float: right;
-    margin-top: 5%;
+    float: left;
+    margin-top: 6%;
+    margin-left: 7%;
     width: 50%;
 }
 
