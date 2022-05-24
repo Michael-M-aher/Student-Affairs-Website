@@ -31,25 +31,25 @@
         </div>
         <div class="name">
           <label class="student-title">Student Name:</label><br />
-          <input id="NAME" name="name" class="text-input" type="text" value="{{student.name}}">
+          <input id="NAME" name="name" class="text-input" type="text" value="{{student.name}}" required>
           <p class="error" id="Pname"></p>
         </div>
         <br />
         <div class="id">
           <label class="student-title">Student ID:</label><br />
-          <input id="IDs" name="Sid" class="text-input" type="text" value="{{student.id}}">
+          <input id="IDs" name="Sid" class="text-input" type="text" value="{{student.id}}" required>
           <p class="error" id="Pid"></p>
         </div>
         <br />
         <div class="gpa">
           <label class="student-title">GPA:</label><br />
-          <input id="GPA" name="gpa" class="text-input" type="text" value="{{student.gpa}}">
+          <input id="GPA" name="gpa" class="text-input" type="text" value="{{student.gpa}}" required>
           <p class="error" id="Pgpa"></p>
         </div>
         <br />
         <div class="email">
           <label class="student-title">Email Address:</label><br />
-          <input id="EMAIL" name="email" class="text-input" type="text" value="{{student.email}}">
+          <input id="EMAIL" name="email" class="text-input" type="text" value="{{student.email}}" required>
           <p class="error" id="Pemail"></p>
         </div>
         <br />
@@ -83,12 +83,12 @@
         <br />
         <div class="department">
           <label class="student-title">Department:</label><br />
-          <i id="department">{{student.department}}</i>
+          <i id="department">{{student.department|upper}}</i>
         </div>
         <br />
         <div class="birthdate">
           <label class="student-title">Date of birth:</label><br />
-          <input id="date-button" name="birth" class="date-button" type="date" value="">
+          <input id="date-button" name="birth" class="date-button" type="date" value="" required>
           <p class="error" id="Pbirth"></p>
         </div>
         <br />
@@ -107,14 +107,14 @@
         <br />
         <div class="phone">
           <label class="student-title">Mobile Number:</label><br />
-          <input id="PHONE" name="phone" class="text-input" type="text" value="{{student.phone}}">
+          <input id="PHONE" name="phone" class="text-input" type="text" value="{{student.phone}}" required>
           <p class="error" id="Pphone"></p>
         </div>
         <br />
         <div class="status">
           <label class="student-title">Status:</label>
           <label class="switch">
-            <input type="checkbox" id="SWITCH" name="status"
+            <input type="checkbox" id="SWITCH" name="status" required
               {% if student.status == "active" %}
                     checked
               {% endif %}
@@ -187,7 +187,7 @@
 {% block js %}
 <script src="{% static 'js/validatedStudentInfo.js'%}"></script>
 <script src="{% static 'js/deleteStudent.js'%}"></script>
-<script src="{% static 'JS/refreshPhoto.js'%}"></script>
+<script src="{% static 'js/refreshPhoto.js'%}"></script>
 <script>
   if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
     window.location.reload();

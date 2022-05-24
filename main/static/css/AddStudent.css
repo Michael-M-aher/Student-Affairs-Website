@@ -30,6 +30,7 @@ label {
   border: 1px solid;
   border-radius: 25px;
   width: 200px;
+  padding-left: 1%;
 }
 
 .student-title {

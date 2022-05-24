@@ -52,6 +52,7 @@
 .edit-student select,
 #department {
     background: #faf4f4;
+    padding-left: 2%;
 }
 
 .edit-student input::placeholder,
