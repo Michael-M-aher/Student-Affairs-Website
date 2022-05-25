@@ -23,7 +23,7 @@ function validateForm(vtype) {
         var select2 = document.getElementById("DEPARTMENT");
         var department = select2.options[select2.selectedIndex].value;
     }else{
-        department = document.getElementById("department").innerHTML
+        department = document.getElementById("department").innerHTML.toLocaleLowerCase()
     }
     var regName = /^[a-zA-Z]+( [a-zA-Z]+)+$/ ;
     if(name == null || name == ""){
