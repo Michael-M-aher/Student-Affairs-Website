@@ -28,10 +28,10 @@ We started to implement the backend of the website using <b>Django</b>: </br>
 
 <h2>Some screenshots of the website:</h2>
 <div>
-<img src="https://user-images.githubusercontent.com/25803558/171784915-c170ea20-55b3-425e-a4d3-8ef9f3e4e231.jpeg"  width="600" height="400" />
-<img src="https://user-images.githubusercontent.com/25803558/171784996-430c1021-ffc4-4219-aa7c-31a90fb57133.jpeg"  width="600" height="400" />
-<img src="https://user-images.githubusercontent.com/25803558/171785005-f3c5a692-51ba-4db0-91a9-af2b199426fe.jpeg"  width="600" height="400" />
-<img src="https://user-images.githubusercontent.com/25803558/171785165-cc3649e4-dcab-4b8e-8b70-8be83ddf0197.jpeg"  width="600" height="400" />
+<img src="https://user-images.githubusercontent.com/25803558/171784915-c170ea20-55b3-425e-a4d3-8ef9f3e4e231.jpeg"  />
+<img src="https://user-images.githubusercontent.com/25803558/171784996-430c1021-ffc4-4219-aa7c-31a90fb57133.jpeg"  />
+<img src="https://user-images.githubusercontent.com/25803558/171785005-f3c5a692-51ba-4db0-91a9-af2b199426fe.jpeg"  />
+<img src="https://user-images.githubusercontent.com/25803558/171785165-cc3649e4-dcab-4b8e-8b70-8be83ddf0197.jpeg"  />
 </div>
 
 Setting up the environment 🛠
